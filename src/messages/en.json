@@ -1,0 +1,746 @@
+{
+  "common": {
+    "appName": "DigiTools",
+    "tagline": "Premium Browser Utilities",
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "copyFailed": "Copy failed",
+    "download": "Download",
+    "downloaded": "Downloaded",
+    "reset": "Reset",
+    "clear": "Clear",
+    "loading": "Loading...",
+    "processing": "Processing...",
+    "error": "Something went wrong",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "backToHome": "Back to tools",
+    "backToTools": "All tools",
+    "search": "Search",
+    "searchPlaceholder": "Search tools...",
+    "searchEmpty": "No tools found",
+    "searchHint": "Try a different keyword",
+    "viewAll": "View all tools",
+    "exploreTools": "Explore all tools",
+    "results": "results",
+    "optional": "optional",
+    "required": "required",
+    "input": "Input",
+    "output": "Output",
+    "preview": "Preview",
+    "settings": "Settings",
+    "options": "Options",
+    "size": "Size",
+    "format": "Format",
+    "quality": "Quality",
+    "width": "Width",
+    "height": "Height",
+    "duration": "Duration",
+    "type": "Type",
+    "name": "Name",
+    "value": "Value",
+    "actions": "Actions",
+    "before": "Before",
+    "after": "After",
+    "original": "Original",
+    "result": "Result",
+    "examples": "Examples",
+    "useCases": "Use cases",
+    "faq": "FAQ",
+    "faqs": "Frequently Asked Questions",
+    "relatedTools": "Related tools",
+    "privacy": "Privacy",
+    "privacyNote": "All processing happens locally in your browser. No data is uploaded to any server.",
+    "clientSideOnly": "100% client-side",
+    "noUpload": "No file uploads to servers",
+    "theme": "Theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "systemMode": "System theme",
+    "language": "Language",
+    "english": "English",
+    "french": "Français",
+    "poweredBy": "Built with Next.js",
+    "allRightsReserved": "All rights reserved",
+    "categories": "Categories",
+    "allCategories": "All",
+    "developerTools": "Developer Tools",
+    "textTools": "Text Tools",
+    "encodingTools": "Encoding & Generators",
+    "imageTools": "Image Tools",
+    "designTools": "Design & Utility",
+    "mediaTools": "Media Tools",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toolsCount": "tools available",
+    "freeTools": "Free",
+    "noSignup": "No signup",
+    "instantProcessing": "Instant",
+    "dragDropHere": "Drop your file here",
+    "dragDropOr": "or",
+    "browseFiles": "Browse files",
+    "fileTooLarge": "File is too large",
+    "fileUnsupported": "File type not supported",
+    "fileRequired": "Please select a file",
+    "invalidInput": "Invalid input",
+    "noOutput": "No output yet",
+    "noOutputDesc": "Enter input to see results",
+    "startByTyping": "Start by typing or pasting your content",
+    "paste": "Paste",
+    "pasteHere": "Paste here",
+    "clearInput": "Clear input",
+    "loadExample": "Load example",
+    "seeResult": "See result",
+    "advancedOptions": "Advanced options",
+    "showAdvanced": "Show advanced options",
+    "hideAdvanced": "Hide advanced options",
+    "reduceBy": "Reduced by",
+    "reductionPercent": "% reduction",
+    "sizeSaved": "Size saved",
+    "filesProcessed": "files processed",
+    "readyToDownload": "Ready to download",
+    "downloadAll": "Download all",
+    "clearAll": "Clear all",
+    "removeItem": "Remove",
+    "dropFilesHere": "Drop files here",
+    "multipleFiles": "Multiple files",
+    "selectFile": "Select file",
+    "selectMultiple": "Select multiple",
+    "apply": "Apply",
+    "applied": "Applied",
+    "regenerate": "Regenerate",
+    "generate": "Generate",
+    "generating": "Generating...",
+    "converting": "Converting...",
+    "compressing": "Compressing...",
+    "optimizing": "Optimizing...",
+    "formatting": "Formatting...",
+    "validating": "Validating...",
+    "encoding": "Encoding...",
+    "decoding": "Decoding...",
+    "uploaded": "File loaded",
+    "uploading": "Loading file...",
+    "ready": "Ready",
+    "invalidFile": "Invalid file",
+    "browserNotSupported": "Your browser does not support this feature",
+    "featureUnavailable": "This feature is not available in your browser",
+    "tryAgain": "Try again",
+    "learnMore": "Learn more",
+    "documentation": "Documentation",
+    "github": "GitHub",
+    "share": "Share",
+    "shareLink": "Share link",
+    "linkCopied": "Link copied",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "pressToSearch": "Press / to search",
+    "escToClose": "Press ESC to close"
+  },
+  "home": {
+    "heroTitle": "All your favorite tools, in one place",
+    "heroSubtitle": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
+    "heroCta": "Explore tools",
+    "heroSecondaryCta": "Why DigiTools?",
+    "featurePrivacyTitle": "Private by design",
+    "featurePrivacyDesc": "All processing runs in your browser. Your data never leaves your device.",
+    "featureFastTitle": "Lightning fast",
+    "featureFastDesc": "Optimized bundles and lazy-loaded libraries deliver instant results.",
+    "featureBilingualTitle": "Bilingual",
+    "featureBilingualDesc": "Full English and French support with automatic language detection.",
+    "featureFreeTitle": "Free forever",
+    "featureFreeDesc": "No signup, no paywall, no limits. Just tools that work.",
+    "statsTools": "Functional tools",
+    "statsCategories": "Categories",
+    "statsLanguages": "Languages",
+    "statsPrivacy": "Client-side",
+    "browseByCategory": "Browse by category",
+    "allTools": "All tools",
+    "popularTools": "Popular tools",
+    "newTools": "Recently added",
+    "madeWithLove": "Crafted for productivity"
+  },
+  "categories": {
+    "developer": {
+      "name": "Developer Tools",
+      "description": "Format, validate, and transform code with precision"
+    },
+    "text": {
+      "name": "Text Tools",
+      "description": "Write, analyze, and transform text content"
+    },
+    "encoding": {
+      "name": "Encoding & Generators",
+      "description": "Encode, decode, and generate values for any workflow"
+    },
+    "image": {
+      "name": "Image Tools",
+      "description": "Compress, resize, convert, and optimize images"
+    },
+    "design": {
+      "name": "Design & Utility",
+      "description": "Convert colors, timestamps, and design assets"
+    },
+    "media": {
+      "name": "Media Tools",
+      "description": "Convert, compress, and process audio & video"
+    }
+  },
+  "footer": {
+    "description": "Premium browser-based utility tools. Fast, private, bilingual.",
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": "Legal",
+    "allTools": "All tools",
+    "categories": "Categories",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "cookies": "Cookie policy",
+    "madeWith": "Made with"
+  },
+  "tools": {
+    "json-formatter": {
+      "name": "JSON Formatter & Validator",
+      "short": "Format, validate, and beautify JSON",
+      "description": "Format, validate, and beautify your JSON data directly in the browser. Detect syntax errors, copy results, and download formatted output.",
+      "input": "JSON input",
+      "inputPlaceholder": "Paste your JSON here...",
+      "output": "Formatted output",
+      "format": "Format",
+      "minify": "Minify",
+      "validate": "Validate",
+      "indent": "Indent size",
+      "valid": "Valid JSON",
+      "invalid": "Invalid JSON",
+      "errorAt": "Error at line {line}, column {col}",
+      "faq": [
+        {
+          "q": "Is my JSON data sent to a server?",
+          "a": "No. All formatting and validation happens entirely in your browser. Your data never leaves your device."
+        },
+        {
+          "q": "What JSON formats are supported?",
+          "a": "Standard JSON (RFC 8259). Objects, arrays, strings, numbers, booleans, and null are all supported."
+        },
+        {
+          "q": "Can I download the formatted result?",
+          "a": "Yes. Use the Download button to save the formatted JSON as a .json file."
+        }
+      ]
+    },
+    "code-formatter": {
+      "name": "Code Formatter",
+      "short": "Format and prettify code in multiple languages",
+      "description": "Format and beautify source code across multiple programming languages with clean, syntax-aware output.",
+      "input": "Source code",
+      "inputPlaceholder": "Paste your code here...",
+      "output": "Formatted code",
+      "language": "Language",
+      "format": "Format",
+      "faq": [
+        {
+          "q": "Which languages are supported?",
+          "a": "JavaScript, TypeScript, JSON, CSS, HTML, and more are supported through dedicated formatters."
+        }
+      ]
+    },
+    "html-formatter": {
+      "name": "HTML Formatter",
+      "short": "Format and prettify HTML markup",
+      "description": "Format, prettify, and indent HTML markup with customizable indentation for cleaner, more readable code.",
+      "input": "HTML input",
+      "inputPlaceholder": "<html>...</html>",
+      "output": "Formatted HTML",
+      "format": "Format",
+      "indent": "Indent size",
+      "faq": [
+        {
+          "q": "Does this support inline CSS and JS?",
+          "a": "Yes. The formatter handles inline styles and scripts while preserving your HTML structure."
+        }
+      ]
+    },
+    "css-formatter": {
+      "name": "CSS Formatter",
+      "short": "Beautify or minify CSS",
+      "description": "Format and prettify CSS stylesheets, or minify them for production use with one click.",
+      "input": "CSS input",
+      "inputPlaceholder": "Paste your CSS here...",
+      "output": "Formatted CSS",
+      "beautify": "Beautify",
+      "minify": "Minify",
+      "indent": "Indent size",
+      "faq": [
+        {
+          "q": "Will minification break my CSS?",
+          "a": "No. Minification only removes whitespace and comments, preserving all functional rules."
+        }
+      ]
+    },
+    "javascript-formatter": {
+      "name": "JavaScript Formatter",
+      "short": "Format and beautify JavaScript",
+      "description": "Format, prettify, and beautify JavaScript code with syntax-aware indentation and consistent styling.",
+      "input": "JavaScript input",
+      "inputPlaceholder": "Paste your JS here...",
+      "output": "Formatted JS",
+      "format": "Format",
+      "indent": "Indent size",
+      "faq": [
+        {
+          "q": "Does this support modern ES6+ syntax?",
+          "a": "Yes. Arrow functions, destructuring, async/await, and other modern syntax are fully supported."
+        }
+      ]
+    },
+    "base64": {
+      "name": "Base64 Encoder / Decoder",
+      "short": "Encode and decode Base64 strings",
+      "description": "Encode text to Base64 or decode Base64 back to text, with full Unicode support and file handling.",
+      "input": "Text input",
+      "inputPlaceholder": "Enter text to encode or Base64 to decode...",
+      "output": "Result",
+      "encode": "Encode",
+      "decode": "Decode",
+      "mode": "Mode",
+      "faq": [
+        {
+          "q": "Does this support Unicode characters?",
+          "a": "Yes. The tool handles UTF-8 encoding properly, including emoji and non-Latin scripts."
+        }
+      ]
+    },
+    "url-encoder": {
+      "name": "URL Encoder / Decoder",
+      "short": "Encode and decode URLs safely",
+      "description": "Encode URLs or URI components to safely transmit special characters, and decode them back when needed.",
+      "input": "Input",
+      "inputPlaceholder": "Enter URL or text...",
+      "output": "Result",
+      "encode": "Encode URI",
+      "encodeComponent": "Encode Component",
+      "decode": "Decode URI",
+      "decodeComponent": "Decode Component",
+      "faq": [
+        {
+          "q": "What's the difference between encodeURI and encodeURIComponent?",
+          "a": "encodeURI preserves reserved URL characters like :/?#&=, while encodeURIComponent encodes everything except A-Z, a-z, 0-9, and a few symbols."
+        }
+      ]
+    },
+    "uuid-generator": {
+      "name": "UUID Generator",
+      "short": "Generate valid UUIDs (v4)",
+      "description": "Generate one or multiple UUIDs (v4) instantly, with copy and download options for bulk generation.",
+      "count": "Number of UUIDs",
+      "uppercase": "Uppercase",
+      "braces": "Wrap in braces",
+      "hyphens": "Include hyphens",
+      "generate": "Generate UUIDs",
+      "output": "Generated UUIDs",
+      "faq": [
+        {
+          "q": "Are these UUIDs unique?",
+          "a": "Yes. UUID v4 uses random values, making collisions astronomically unlikely."
+        }
+      ]
+    },
+    "password-generator": {
+      "name": "Password Generator",
+      "short": "Generate strong, secure passwords",
+      "description": "Generate strong, random passwords with customizable length and character sets. Includes a strength indicator.",
+      "length": "Password length",
+      "uppercase": "Uppercase (A-Z)",
+      "lowercase": "Lowercase (a-z)",
+      "numbers": "Numbers (0-9)",
+      "symbols": "Symbols (!@#$...)",
+      "excludeAmbiguous": "Exclude ambiguous characters",
+      "generate": "Generate password",
+      "output": "Your password",
+      "strength": "Strength",
+      "strengthWeak": "Weak",
+      "strengthFair": "Fair",
+      "strengthGood": "Good",
+      "strengthStrong": "Strong",
+      "strengthVeryStrong": "Very strong",
+      "faq": [
+        {
+          "q": "Are these passwords safe to use?",
+          "a": "Yes. Passwords are generated using the browser's cryptographically secure random generator."
+        }
+      ]
+    },
+    "qr-code": {
+      "name": "QR Code Generator",
+      "short": "Create QR codes from text or URLs",
+      "description": "Generate QR codes from any text, URL, or contact info. Download as PNG or SVG with customizable size and colors.",
+      "input": "Text or URL",
+      "inputPlaceholder": "Enter text or URL to encode...",
+      "output": "QR code",
+      "size": "Size (px)",
+      "fgColor": "Foreground color",
+      "bgColor": "Background color",
+      "errorCorrection": "Error correction",
+      "downloadPng": "Download PNG",
+      "downloadSvg": "Download SVG",
+      "faq": [
+        {
+          "q": "What's the maximum data size?",
+          "a": "Up to ~2,953 alphanumeric characters, depending on the error correction level."
+        }
+      ]
+    },
+    "markdown-previewer": {
+      "name": "Markdown Previewer",
+      "short": "Live Markdown editor with preview",
+      "description": "Write Markdown and see a live, formatted preview side by side. Safe HTML rendering with copy and download options.",
+      "input": "Markdown input",
+      "inputPlaceholder": "# Hello World\n\nWrite your **markdown** here...",
+      "preview": "Live preview",
+      "faq": [
+        {
+          "q": "Is the rendered HTML safe?",
+          "a": "Yes. HTML is sanitized to prevent XSS attacks while still rendering standard Markdown."
+        }
+      ]
+    },
+    "regex-tester": {
+      "name": "Regex Tester",
+      "short": "Test regular expressions with live highlighting",
+      "description": "Test regular expressions with live match highlighting, group capture display, and clear error messages.",
+      "pattern": "Regular expression",
+      "patternPlaceholder": "Enter your regex pattern...",
+      "flags": "Flags",
+      "testString": "Test string",
+      "testStringPlaceholder": "Enter text to test against...",
+      "matches": "Matches",
+      "matchCount": "{count} match(es)",
+      "noMatches": "No matches",
+      "groups": "Capture groups",
+      "faq": [
+        {
+          "q": "Which regex flavor is supported?",
+          "a": "Standard JavaScript regular expressions (similar to PCRE with some limitations)."
+        }
+      ]
+    },
+    "text-diff": {
+      "name": "Text Diff Checker",
+      "short": "Compare two texts and highlight differences",
+      "description": "Compare two blocks of text and clearly see additions, removals, and changes with inline highlighting.",
+      "original": "Original text",
+      "originalPlaceholder": "Paste the original text...",
+      "changed": "Changed text",
+      "changedPlaceholder": "Paste the changed text...",
+      "output": "Differences",
+      "added": "Added",
+      "removed": "Removed",
+      "unchanged": "Unchanged",
+      "ignoreCase": "Ignore case",
+      "ignoreWhitespace": "Ignore whitespace",
+      "faq": [
+        {
+          "q": "What diff algorithm is used?",
+          "a": "A line-based diff algorithm that produces clear, readable results for most use cases."
+        }
+      ]
+    },
+    "word-counter": {
+      "name": "Word & Character Counter",
+      "short": "Count words, characters, lines, and more",
+      "description": "Instantly count words, characters, sentences, paragraphs, and estimated reading time for any text.",
+      "input": "Your text",
+      "inputPlaceholder": "Paste or type your text...",
+      "words": "Words",
+      "characters": "Characters",
+      "charactersNoSpaces": "Characters (no spaces)",
+      "lines": "Lines",
+      "paragraphs": "Paragraphs",
+      "sentences": "Sentences",
+      "readingTime": "Reading time",
+      "minutes": "min",
+      "seconds": "sec",
+      "faq": [
+        {
+          "q": "How is reading time calculated?",
+          "a": "Based on an average reading speed of 200 words per minute."
+        }
+      ]
+    },
+    "case-converter": {
+      "name": "Case Converter",
+      "short": "Convert text to any case format",
+      "description": "Convert text between lowercase, UPPERCASE, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case.",
+      "input": "Your text",
+      "inputPlaceholder": "Enter text to convert...",
+      "output": "Result",
+      "lowercase": "lowercase",
+      "uppercase": "UPPERCASE",
+      "titleCase": "Title Case",
+      "sentenceCase": "Sentence case",
+      "camelCase": "camelCase",
+      "pascalCase": "PascalCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "faq": [
+        {
+          "q": "Will accents be preserved?",
+          "a": "Yes. All case conversions preserve Unicode characters including accented letters."
+        }
+      ]
+    },
+    "image-compressor": {
+      "name": "Image Compressor",
+      "short": "Compress images without losing quality",
+      "description": "Compress JPG, PNG, and WebP images with adjustable quality. Drag-and-drop, before/after comparison, all client-side.",
+      "input": "Drop your image",
+      "output": "Compressed result",
+      "quality": "Quality",
+      "originalSize": "Original size",
+      "compressedSize": "Compressed size",
+      "faq": [
+        {
+          "q": "Are my images uploaded?",
+          "a": "No. All compression happens locally using the HTML Canvas API."
+        }
+      ]
+    },
+    "image-resizer": {
+      "name": "Image Resizer",
+      "short": "Resize images to any dimensions",
+      "description": "Resize images by width or height with optional aspect ratio lock. Drag-and-drop upload and instant download.",
+      "input": "Drop your image",
+      "output": "Resized image",
+      "lockAspectRatio": "Lock aspect ratio",
+      "faq": [
+        {
+          "q": "What's the maximum output size?",
+          "a": "Up to your browser's canvas limit (typically 16,384 x 16,384 pixels)."
+        }
+      ]
+    },
+    "image-cropper": {
+      "name": "Image Cropper",
+      "short": "Crop images with precision",
+      "description": "Crop images interactively with aspect-ratio presets and rotation. Download the cropped result instantly.",
+      "input": "Drop your image",
+      "output": "Cropped image",
+      "aspectRatio": "Aspect ratio",
+      "free": "Free",
+      "square": "1:1 Square",
+      "landscape": "4:3 Landscape",
+      "portrait": "3:4 Portrait",
+      "wide": "16:9 Wide",
+      "rotate": "Rotate",
+      "crop": "Crop",
+      "faq": [
+        {
+          "q": "Can I crop to a custom aspect ratio?",
+          "a": "Yes. Use the Free aspect ratio option to crop to any dimensions."
+        }
+      ]
+    },
+    "image-converter": {
+      "name": "Image Format Converter",
+      "short": "Convert images between PNG, JPG, WebP",
+      "description": "Convert images between PNG, JPG/JPEG, and WebP formats with preview and quality controls.",
+      "input": "Drop your image",
+      "output": "Converted image",
+      "targetFormat": "Target format",
+      "faq": [
+        {
+          "q": "Which formats are supported?",
+          "a": "PNG, JPG/JPEG, and WebP — covering all modern browser and web use cases."
+        }
+      ]
+    },
+    "svg-optimizer": {
+      "name": "SVG Optimizer",
+      "short": "Clean and minimize SVG markup",
+      "description": "Optimize SVG markup by removing metadata, comments, and unnecessary attributes. See before/after file sizes.",
+      "input": "SVG input",
+      "inputPlaceholder": "<svg>...</svg>",
+      "output": "Optimized SVG",
+      "optimize": "Optimize",
+      "originalSize": "Original size",
+      "optimizedSize": "Optimized size",
+      "faq": [
+        {
+          "q": "Will optimization break my SVG?",
+          "a": "No. Only redundant data is removed — the visible result remains identical."
+        }
+      ]
+    },
+    "color-converter": {
+      "name": "Color Converter & Picker",
+      "short": "Convert between HEX, RGB, HSL",
+      "description": "Pick colors and convert between HEX, RGB, and HSL formats with live preview and one-click copy.",
+      "picker": "Color picker",
+      "preview": "Preview",
+      "hex": "HEX",
+      "rgb": "RGB",
+      "hsl": "HSL",
+      "copyValue": "Copy value",
+      "faq": [
+        {
+          "q": "Are these color values accurate?",
+          "a": "Yes. All conversions use the standard sRGB color space."
+        }
+      ]
+    },
+    "timestamp-converter": {
+      "name": "Timestamp Converter",
+      "short": "Convert Unix timestamps and dates",
+      "description": "Convert Unix timestamps to human-readable dates and vice versa, with seconds/milliseconds and timezone support.",
+      "timestamp": "Unix timestamp",
+      "date": "Date",
+      "toHuman": "Timestamp → Date",
+      "toTimestamp": "Date → Timestamp",
+      "unit": "Unit",
+      "seconds": "Seconds",
+      "milliseconds": "Milliseconds",
+      "timezone": "Timezone",
+      "local": "Local",
+      "utc": "UTC",
+      "faq": [
+        {
+          "q": "What's the Unix timestamp format?",
+          "a": "Seconds or milliseconds since January 1, 1970 UTC (the Unix epoch)."
+        }
+      ]
+    },
+    "video-converter": {
+      "name": "Video Format Converter",
+      "short": "Convert video formats in the browser",
+      "description": "Convert video files between common formats using FFmpeg WASM. Fully client-side processing with progress feedback.",
+      "input": "Drop your video",
+      "output": "Converted video",
+      "targetFormat": "Target format",
+      "convert": "Convert",
+      "faq": [
+        {
+          "q": "Why is conversion slow?",
+          "a": "Conversion uses FFmpeg compiled to WebAssembly, which runs entirely in your browser. Speed depends on your device."
+        }
+      ]
+    },
+    "video-compressor": {
+      "name": "Video Compressor",
+      "short": "Compress videos client-side",
+      "description": "Compress video files with quality/size controls using FFmpeg WASM. All processing happens in your browser.",
+      "input": "Drop your video",
+      "output": "Compressed video",
+      "targetSize": "Target size (MB)",
+      "crf": "Quality (CRF)",
+      "compress": "Compress",
+      "faq": [
+        {
+          "q": "What is CRF?",
+          "a": "Constant Rate Factor — lower values produce higher quality but larger files. 18-28 is typical for web video."
+        }
+      ]
+    },
+    "audio-converter": {
+      "name": "Audio Converter",
+      "short": "Convert audio formats in the browser",
+      "description": "Convert audio files between common formats (MP3, WAV, OGG) using FFmpeg WASM. Drag-and-drop with progress feedback.",
+      "input": "Drop your audio",
+      "output": "Converted audio",
+      "targetFormat": "Target format",
+      "convert": "Convert",
+      "faq": [
+        {
+          "q": "Which audio formats are supported?",
+          "a": "Common formats including MP3, WAV, OGG, and AAC, depending on browser codec support."
+        }
+      ]
+    },
+    "video-downloader": {
+      "name": "Video Downloader",
+      "short": "Download videos from YouTube, TikTok, Instagram",
+      "description": "Paste a video URL from YouTube, TikTok, Instagram, Facebook, Vimeo or X/Twitter to download it. Choose video (MP4) or audio (MP3) and pick the quality. The backend mini-service extracts the direct stream URL using yt-dlp, and the browser downloads it directly to you — your data never touches a third-party server.",
+      "urlLabel": "Video URL",
+      "placeholder": "https://www.youtube.com/watch?v=...",
+      "fetch": "Get formats",
+      "fetching": "Fetching video info...",
+      "videoMode": "Video (MP4)",
+      "audioMode": "Audio (MP3)",
+      "videoQuality": "Video quality",
+      "audioQuality": "Audio quality",
+      "noFormat": "No format available for this mode",
+      "download": "Download",
+      "downloading": "Starting download...",
+      "openOriginal": "Open original page",
+      "empty": {
+        "title": "Paste a video URL to get started",
+        "description": "Supports YouTube, TikTok, Instagram, Facebook, Vimeo, X/Twitter and more."
+      },
+      "privacy": "The download is performed by your browser directly from the video source. DigiTools's backend only extracts the direct URL — your video is never stored on our servers.",
+      "toast": {
+        "fetched": "Video info retrieved",
+        "downloading": "Download started"
+      },
+      "errors": {
+        "emptyUrl": "Please paste a video URL first",
+        "fetchFailed": "Failed to fetch video info. The platform may block automated requests, or the URL is invalid/private.",
+        "downloadFailed": "Download failed. Try a different format or quality."
+      },
+      "detail": {
+        "format": "Format",
+        "resolution": "Resolution",
+        "size": "File size",
+        "bitrate": "Bitrate"
+      },
+      "faq": [
+        {
+          "q": "Why does the download sometimes fail?",
+          "a": "Some platforms (especially YouTube) actively block automated access. If a download fails, try again later, or use a different platform. Private videos and member-only content are never accessible."
+        },
+        {
+          "q": "Why are there two modes (Video and Audio)?",
+          "a": "Video mode downloads the full MP4 with both video and audio. Audio mode extracts only the audio track as MP3, ideal for music and podcasts — much smaller file size."
+        },
+        {
+          "q": "What about video quality?",
+          "a": "Available qualities depend on the source. Higher resolutions (1080p, 4K) require more bandwidth and storage. For YouTube, 720p is usually a good balance of quality and size."
+        },
+        {
+          "q": "Is this legal?",
+          "a": "Downloading videos for personal, offline use is generally allowed in most jurisdictions, but redistributing copyrighted content is not. Always respect the platform's terms of service and the creator's rights."
+        },
+        {
+          "q": "Does the video pass through DigiTools servers?",
+          "a": "No. Our backend only extracts the direct stream URL using yt-dlp. The actual video bytes flow directly from the source platform to your browser."
+        }
+      ]
+    }
+  },
+  "seo": {
+    "siteName": "DigiTools",
+    "siteDescription": "Premium browser-based utility tools. 25 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
+    "defaultTitle": "DigiTools — Premium Browser Utility Tools",
+    "defaultDescription": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
+  },
+  "errors": {
+    "invalidJson": "Invalid JSON: {message}",
+    "invalidRegex": "Invalid regular expression: {message}",
+    "invalidBase64": "Invalid Base64 input",
+    "invalidUrl": "Invalid URL format",
+    "fileTooLarge": "File exceeds maximum size of {size}MB",
+    "unsupportedFormat": "Unsupported format: {format}",
+    "conversionFailed": "Conversion failed: {message}",
+    "compressionFailed": "Compression failed: {message}",
+    "browserUnsupported": "Your browser doesn't support this operation",
+    "ffmpegLoadFailed": "Failed to load FFmpeg. Please refresh and try again.",
+    "canvasUnsupported": "Canvas API not supported in this browser",
+    "clipboardDenied": "Clipboard access denied",
+    "generic": "An error occurred. Please try again."
+  }
+}

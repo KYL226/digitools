@@ -1,0 +1,688 @@
+     1→{
+     2→  "common": {
+     3→    "appName": "ToolForge",
+     4→    "tagline": "Premium Browser Utilities",
+     5→    "copy": "Copy",
+     6→    "copied": "Copied to clipboard",
+     7→    "copyFailed": "Copy failed",
+     8→    "download": "Download",
+     9→    "downloaded": "Downloaded",
+    10→    "reset": "Reset",
+    11→    "clear": "Clear",
+    12→    "loading": "Loading...",
+    13→    "processing": "Processing...",
+    14→    "error": "Something went wrong",
+    15→    "success": "Success",
+    16→    "save": "Save",
+    17→    "cancel": "Cancel",
+    18→    "close": "Close",
+    19→    "confirm": "Confirm",
+    20→    "back": "Back",
+    21→    "backToHome": "Back to tools",
+    22→    "backToTools": "All tools",
+    23→    "search": "Search",
+    24→    "searchPlaceholder": "Search tools...",
+    25→    "searchEmpty": "No tools found",
+    26→    "searchHint": "Try a different keyword",
+    27→    "viewAll": "View all tools",
+    28→    "exploreTools": "Explore all tools",
+    29→    "results": "results",
+    30→    "optional": "optional",
+    31→    "required": "required",
+    32→    "input": "Input",
+    33→    "output": "Output",
+    34→    "preview": "Preview",
+    35→    "settings": "Settings",
+    36→    "options": "Options",
+    37→    "size": "Size",
+    38→    "format": "Format",
+    39→    "quality": "Quality",
+    40→    "width": "Width",
+    41→    "height": "Height",
+    42→    "duration": "Duration",
+    43→    "type": "Type",
+    44→    "name": "Name",
+    45→    "value": "Value",
+    46→    "actions": "Actions",
+    47→    "before": "Before",
+    48→    "after": "After",
+    49→    "original": "Original",
+    50→    "result": "Result",
+    51→    "examples": "Examples",
+    52→    "useCases": "Use cases",
+    53→    "faq": "FAQ",
+    54→    "faqs": "Frequently Asked Questions",
+    55→    "relatedTools": "Related tools",
+    56→    "privacy": "Privacy",
+    57→    "privacyNote": "All processing happens locally in your browser. No data is uploaded to any server.",
+    58→    "clientSideOnly": "100% client-side",
+    59→    "noUpload": "No file uploads to servers",
+    60→    "theme": "Theme",
+    61→    "lightMode": "Light mode",
+    62→    "darkMode": "Dark mode",
+    63→    "systemMode": "System theme",
+    64→    "language": "Language",
+    65→    "english": "English",
+    66→    "french": "Français",
+    67→    "poweredBy": "Built with Next.js",
+    68→    "allRightsReserved": "All rights reserved",
+    69→    "categories": "Categories",
+    70→    "allCategories": "All",
+    71→    "developerTools": "Developer Tools",
+    72→    "textTools": "Text Tools",
+    73→    "encodingTools": "Encoding & Generators",
+    74→    "imageTools": "Image Tools",
+    75→    "designTools": "Design & Utility",
+    76→    "mediaTools": "Media Tools",
+    77→    "menu": "Menu",
+    78→    "openMenu": "Open menu",
+    79→    "closeMenu": "Close menu",
+    80→    "toolsCount": "tools available",
+    81→    "freeTools": "Free",
+    82→    "noSignup": "No signup",
+    83→    "instantProcessing": "Instant",
+    84→    "dragDropHere": "Drop your file here",
+    85→    "dragDropOr": "or",
+    86→    "browseFiles": "Browse files",
+    87→    "fileTooLarge": "File is too large",
+    88→    "fileUnsupported": "File type not supported",
+    89→    "fileRequired": "Please select a file",
+    90→    "invalidInput": "Invalid input",
+    91→    "noOutput": "No output yet",
+    92→    "noOutputDesc": "Enter input to see results",
+    93→    "startByTyping": "Start by typing or pasting your content",
+    94→    "paste": "Paste",
+    95→    "pasteHere": "Paste here",
+    96→    "clearInput": "Clear input",
+    97→    "loadExample": "Load example",
+    98→    "seeResult": "See result",
+    99→    "advancedOptions": "Advanced options",
+   100→    "showAdvanced": "Show advanced options",
+   101→    "hideAdvanced": "Hide advanced options",
+   102→    "reduceBy": "Reduced by",
+   103→    "reductionPercent": "% reduction",
+   104→    "sizeSaved": "Size saved",
+   105→    "filesProcessed": "files processed",
+   106→    "readyToDownload": "Ready to download",
+   107→    "downloadAll": "Download all",
+   108→    "clearAll": "Clear all",
+   109→    "removeItem": "Remove",
+   110→    "dropFilesHere": "Drop files here",
+   111→    "multipleFiles": "Multiple files",
+   112→    "selectFile": "Select file",
+   113→    "selectMultiple": "Select multiple",
+   114→    "apply": "Apply",
+   115→    "applied": "Applied",
+   116→    "regenerate": "Regenerate",
+   117→    "generate": "Generate",
+   118→    "generating": "Generating...",
+   119→    "converting": "Converting...",
+   120→    "compressing": "Compressing...",
+   121→    "optimizing": "Optimizing...",
+   122→    "formatting": "Formatting...",
+   123→    "validating": "Validating...",
+   124→    "encoding": "Encoding...",
+   125→    "decoding": "Decoding...",
+   126→    "uploaded": "File loaded",
+   127→    "uploading": "Loading file...",
+   128→    "ready": "Ready",
+   129→    "invalidFile": "Invalid file",
+   130→    "browserNotSupported": "Your browser does not support this feature",
+   131→    "featureUnavailable": "This feature is not available in your browser",
+   132→    "tryAgain": "Try again",
+   133→    "learnMore": "Learn more",
+   134→    "documentation": "Documentation",
+   135→    "github": "GitHub",
+   136→    "share": "Share",
+   137→    "shareLink": "Share link",
+   138→    "linkCopied": "Link copied",
+   139→    "keyboardShortcuts": "Keyboard shortcuts",
+   140→    "pressToSearch": "Press / to search",
+   141→    "escToClose": "Press ESC to close"
+   142→  },
+   143→  "home": {
+   144→    "heroTitle": "All your favorite tools, in one place",
+   145→    "heroSubtitle": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
+   146→    "heroCta": "Explore tools",
+   147→    "heroSecondaryCta": "Why ToolForge?",
+   148→    "featurePrivacyTitle": "Private by design",
+   149→    "featurePrivacyDesc": "All processing runs in your browser. Your data never leaves your device.",
+   150→    "featureFastTitle": "Lightning fast",
+   151→    "featureFastDesc": "Optimized bundles and lazy-loaded libraries deliver instant results.",
+   152→    "featureBilingualTitle": "Bilingual",
+   153→    "featureBilingualDesc": "Full English and French support with automatic language detection.",
+   154→    "featureFreeTitle": "Free forever",
+   155→    "featureFreeDesc": "No signup, no paywall, no limits. Just tools that work.",
+   156→    "statsTools": "Functional tools",
+   157→    "statsCategories": "Categories",
+   158→    "statsLanguages": "Languages",
+   159→    "statsPrivacy": "Client-side",
+   160→    "browseByCategory": "Browse by category",
+   161→    "allTools": "All tools",
+   162→    "popularTools": "Popular tools",
+   163→    "newTools": "Recently added",
+   164→    "madeWithLove": "Crafted for productivity"
+   165→  },
+   166→  "categories": {
+   167→    "developer": {
+   168→      "name": "Developer Tools",
+   169→      "description": "Format, validate, and transform code with precision"
+   170→    },
+   171→    "text": {
+   172→      "name": "Text Tools",
+   173→      "description": "Write, analyze, and transform text content"
+   174→    },
+   175→    "encoding": {
+   176→      "name": "Encoding & Generators",
+   177→      "description": "Encode, decode, and generate values for any workflow"
+   178→    },
+   179→    "image": {
+   180→      "name": "Image Tools",
+   181→      "description": "Compress, resize, convert, and optimize images"
+   182→    },
+   183→    "design": {
+   184→      "name": "Design & Utility",
+   185→      "description": "Convert colors, timestamps, and design assets"
+   186→    },
+   187→    "media": {
+   188→      "name": "Media Tools",
+   189→      "description": "Convert, compress, and process audio & video"
+   190→    }
+   191→  },
+   192→  "footer": {
+   193→    "description": "Premium browser-based utility tools. Fast, private, bilingual.",
+   194→    "product": "Product",
+   195→    "resources": "Resources",
+   196→    "company": "Company",
+   197→    "legal": "Legal",
+   198→    "allTools": "All tools",
+   199→    "categories": "Categories",
+   200→    "about": "About",
+   201→    "blog": "Blog",
+   202→    "contact": "Contact",
+   203→    "privacy": "Privacy policy",
+   204→    "terms": "Terms of service",
+   205→    "cookies": "Cookie policy",
+   206→    "madeWith": "Made with"
+   207→  },
+   208→  "tools": {
+   209→    "json-formatter": {
+   210→      "name": "JSON Formatter & Validator",
+   211→      "short": "Format, validate, and beautify JSON",
+   212→      "description": "Format, validate, and beautify your JSON data directly in the browser. Detect syntax errors, copy results, and download formatted output.",
+   213→      "input": "JSON input",
+   214→      "inputPlaceholder": "Paste your JSON here...",
+   215→      "output": "Formatted output",
+   216→      "format": "Format",
+   217→      "minify": "Minify",
+   218→      "validate": "Validate",
+   219→      "indent": "Indent size",
+   220→      "valid": "Valid JSON",
+   221→      "invalid": "Invalid JSON",
+   222→      "errorAt": "Error at line {line}, column {col}",
+   223→      "faq": [
+   224→        {
+   225→          "q": "Is my JSON data sent to a server?",
+   226→          "a": "No. All formatting and validation happens entirely in your browser. Your data never leaves your device."
+   227→        },
+   228→        {
+   229→          "q": "What JSON formats are supported?",
+   230→          "a": "Standard JSON (RFC 8259). Objects, arrays, strings, numbers, booleans, and null are all supported."
+   231→        },
+   232→        {
+   233→          "q": "Can I download the formatted result?",
+   234→          "a": "Yes. Use the Download button to save the formatted JSON as a .json file."
+   235→        }
+   236→      ]
+   237→    },
+   238→    "code-formatter": {
+   239→      "name": "Code Formatter",
+   240→      "short": "Format and prettify code in multiple languages",
+   241→      "description": "Format and beautify source code across multiple programming languages with clean, syntax-aware output.",
+   242→      "input": "Source code",
+   243→      "inputPlaceholder": "Paste your code here...",
+   244→      "output": "Formatted code",
+   245→      "language": "Language",
+   246→      "format": "Format",
+   247→      "faq": [
+   248→        {
+   249→          "q": "Which languages are supported?",
+   250→          "a": "JavaScript, TypeScript, JSON, CSS, HTML, and more are supported through dedicated formatters."
+   251→        }
+   252→      ]
+   253→    },
+   254→    "html-formatter": {
+   255→      "name": "HTML Formatter",
+   256→      "short": "Format and prettify HTML markup",
+   257→      "description": "Format, prettify, and indent HTML markup with customizable indentation for cleaner, more readable code.",
+   258→      "input": "HTML input",
+   259→      "inputPlaceholder": "<html>...</html>",
+   260→      "output": "Formatted HTML",
+   261→      "format": "Format",
+   262→      "indent": "Indent size",
+   263→      "faq": [
+   264→        {
+   265→          "q": "Does this support inline CSS and JS?",
+   266→          "a": "Yes. The formatter handles inline styles and scripts while preserving your HTML structure."
+   267→        }
+   268→      ]
+   269→    },
+   270→    "css-formatter": {
+   271→      "name": "CSS Formatter",
+   272→      "short": "Beautify or minify CSS",
+   273→      "description": "Format and prettify CSS stylesheets, or minify them for production use with one click.",
+   274→      "input": "CSS input",
+   275→      "inputPlaceholder": "Paste your CSS here...",
+   276→      "output": "Formatted CSS",
+   277→      "beautify": "Beautify",
+   278→      "minify": "Minify",
+   279→      "indent": "Indent size",
+   280→      "faq": [
+   281→        {
+   282→          "q": "Will minification break my CSS?",
+   283→          "a": "No. Minification only removes whitespace and comments, preserving all functional rules."
+   284→        }
+   285→      ]
+   286→    },
+   287→    "javascript-formatter": {
+   288→      "name": "JavaScript Formatter",
+   289→      "short": "Format and beautify JavaScript",
+   290→      "description": "Format, prettify, and beautify JavaScript code with syntax-aware indentation and consistent styling.",
+   291→      "input": "JavaScript input",
+   292→      "inputPlaceholder": "Paste your JS here...",
+   293→      "output": "Formatted JS",
+   294→      "format": "Format",
+   295→      "indent": "Indent size",
+   296→      "faq": [
+   297→        {
+   298→          "q": "Does this support modern ES6+ syntax?",
+   299→          "a": "Yes. Arrow functions, destructuring, async/await, and other modern syntax are fully supported."
+   300→        }
+   301→      ]
+   302→    },
+   303→    "base64": {
+   304→      "name": "Base64 Encoder / Decoder",
+   305→      "short": "Encode and decode Base64 strings",
+   306→      "description": "Encode text to Base64 or decode Base64 back to text, with full Unicode support and file handling.",
+   307→      "input": "Text input",
+   308→      "inputPlaceholder": "Enter text to encode or Base64 to decode...",
+   309→      "output": "Result",
+   310→      "encode": "Encode",
+   311→      "decode": "Decode",
+   312→      "mode": "Mode",
+   313→      "faq": [
+   314→        {
+   315→          "q": "Does this support Unicode characters?",
+   316→          "a": "Yes. The tool handles UTF-8 encoding properly, including emoji and non-Latin scripts."
+   317→        }
+   318→      ]
+   319→    },
+   320→    "url-encoder": {
+   321→      "name": "URL Encoder / Decoder",
+   322→      "short": "Encode and decode URLs safely",
+   323→      "description": "Encode URLs or URI components to safely transmit special characters, and decode them back when needed.",
+   324→      "input": "Input",
+   325→      "inputPlaceholder": "Enter URL or text...",
+   326→      "output": "Result",
+   327→      "encode": "Encode URI",
+   328→      "encodeComponent": "Encode Component",
+   329→      "decode": "Decode URI",
+   330→      "decodeComponent": "Decode Component",
+   331→      "faq": [
+   332→        {
+   333→          "q": "What's the difference between encodeURI and encodeURIComponent?",
+   334→          "a": "encodeURI preserves reserved URL characters like :/?#&=, while encodeURIComponent encodes everything except A-Z, a-z, 0-9, and a few symbols."
+   335→        }
+   336→      ]
+   337→    },
+   338→    "uuid-generator": {
+   339→      "name": "UUID Generator",
+   340→      "short": "Generate valid UUIDs (v4)",
+   341→      "description": "Generate one or multiple UUIDs (v4) instantly, with copy and download options for bulk generation.",
+   342→      "count": "Number of UUIDs",
+   343→      "uppercase": "Uppercase",
+   344→      "braces": "Wrap in braces",
+   345→      "hyphens": "Include hyphens",
+   346→      "generate": "Generate UUIDs",
+   347→      "output": "Generated UUIDs",
+   348→      "faq": [
+   349→        {
+   350→          "q": "Are these UUIDs unique?",
+   351→          "a": "Yes. UUID v4 uses random values, making collisions astronomically unlikely."
+   352→        }
+   353→      ]
+   354→    },
+   355→    "password-generator": {
+   356→      "name": "Password Generator",
+   357→      "short": "Generate strong, secure passwords",
+   358→      "description": "Generate strong, random passwords with customizable length and character sets. Includes a strength indicator.",
+   359→      "length": "Password length",
+   360→      "uppercase": "Uppercase (A-Z)",
+   361→      "lowercase": "Lowercase (a-z)",
+   362→      "numbers": "Numbers (0-9)",
+   363→      "symbols": "Symbols (!@#$...)",
+   364→      "excludeAmbiguous": "Exclude ambiguous characters",
+   365→      "generate": "Generate password",
+   366→      "output": "Your password",
+   367→      "strength": "Strength",
+   368→      "strengthWeak": "Weak",
+   369→      "strengthFair": "Fair",
+   370→      "strengthGood": "Good",
+   371→      "strengthStrong": "Strong",
+   372→      "strengthVeryStrong": "Very strong",
+   373→      "faq": [
+   374→        {
+   375→          "q": "Are these passwords safe to use?",
+   376→          "a": "Yes. Passwords are generated using the browser's cryptographically secure random generator."
+   377→        }
+   378→      ]
+   379→    },
+   380→    "qr-code": {
+   381→      "name": "QR Code Generator",
+   382→      "short": "Create QR codes from text or URLs",
+   383→      "description": "Generate QR codes from any text, URL, or contact info. Download as PNG or SVG with customizable size and colors.",
+   384→      "input": "Text or URL",
+   385→      "inputPlaceholder": "Enter text or URL to encode...",
+   386→      "output": "QR code",
+   387→      "size": "Size (px)",
+   388→      "fgColor": "Foreground color",
+   389→      "bgColor": "Background color",
+   390→      "errorCorrection": "Error correction",
+   391→      "downloadPng": "Download PNG",
+   392→      "downloadSvg": "Download SVG",
+   393→      "faq": [
+   394→        {
+   395→          "q": "What's the maximum data size?",
+   396→          "a": "Up to ~2,953 alphanumeric characters, depending on the error correction level."
+   397→        }
+   398→      ]
+   399→    },
+   400→    "markdown-previewer": {
+   401→      "name": "Markdown Previewer",
+   402→      "short": "Live Markdown editor with preview",
+   403→      "description": "Write Markdown and see a live, formatted preview side by side. Safe HTML rendering with copy and download options.",
+   404→      "input": "Markdown input",
+   405→      "inputPlaceholder": "# Hello World\n\nWrite your **markdown** here...",
+   406→      "preview": "Live preview",
+   407→      "faq": [
+   408→        {
+   409→          "q": "Is the rendered HTML safe?",
+   410→          "a": "Yes. HTML is sanitized to prevent XSS attacks while still rendering standard Markdown."
+   411→        }
+   412→      ]
+   413→    },
+   414→    "regex-tester": {
+   415→      "name": "Regex Tester",
+   416→      "short": "Test regular expressions with live highlighting",
+   417→      "description": "Test regular expressions with live match highlighting, group capture display, and clear error messages.",
+   418→      "pattern": "Regular expression",
+   419→      "patternPlaceholder": "Enter your regex pattern...",
+   420→      "flags": "Flags",
+   421→      "testString": "Test string",
+   422→      "testStringPlaceholder": "Enter text to test against...",
+   423→      "matches": "Matches",
+   424→      "matchCount": "{count} match(es)",
+   425→      "noMatches": "No matches",
+   426→      "groups": "Capture groups",
+   427→      "faq": [
+   428→        {
+   429→          "q": "Which regex flavor is supported?",
+   430→          "a": "Standard JavaScript regular expressions (similar to PCRE with some limitations)."
+   431→        }
+   432→      ]
+   433→    },
+   434→    "text-diff": {
+   435→      "name": "Text Diff Checker",
+   436→      "short": "Compare two texts and highlight differences",
+   437→      "description": "Compare two blocks of text and clearly see additions, removals, and changes with inline highlighting.",
+   438→      "original": "Original text",
+   439→      "originalPlaceholder": "Paste the original text...",
+   440→      "changed": "Changed text",
+   441→      "changedPlaceholder": "Paste the changed text...",
+   442→      "output": "Differences",
+   443→      "added": "Added",
+   444→      "removed": "Removed",
+   445→      "unchanged": "Unchanged",
+   446→      "ignoreCase": "Ignore case",
+   447→      "ignoreWhitespace": "Ignore whitespace",
+   448→      "faq": [
+   449→        {
+   450→          "q": "What diff algorithm is used?",
+   451→          "a": "A line-based diff algorithm that produces clear, readable results for most use cases."
+   452→        }
+   453→      ]
+   454→    },
+   455→    "word-counter": {
+   456→      "name": "Word & Character Counter",
+   457→      "short": "Count words, characters, lines, and more",
+   458→      "description": "Instantly count words, characters, sentences, paragraphs, and estimated reading time for any text.",
+   459→      "input": "Your text",
+   460→      "inputPlaceholder": "Paste or type your text...",
+   461→      "words": "Words",
+   462→      "characters": "Characters",
+   463→      "charactersNoSpaces": "Characters (no spaces)",
+   464→      "lines": "Lines",
+   465→      "paragraphs": "Paragraphs",
+   466→      "sentences": "Sentences",
+   467→      "readingTime": "Reading time",
+   468→      "minutes": "min",
+   469→      "seconds": "sec",
+   470→      "faq": [
+   471→        {
+   472→          "q": "How is reading time calculated?",
+   473→          "a": "Based on an average reading speed of 200 words per minute."
+   474→        }
+   475→      ]
+   476→    },
+   477→    "case-converter": {
+   478→      "name": "Case Converter",
+   479→      "short": "Convert text to any case format",
+   480→      "description": "Convert text between lowercase, UPPERCASE, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case.",
+   481→      "input": "Your text",
+   482→      "inputPlaceholder": "Enter text to convert...",
+   483→      "output": "Result",
+   484→      "lowercase": "lowercase",
+   485→      "uppercase": "UPPERCASE",
+   486→      "titleCase": "Title Case",
+   487→      "sentenceCase": "Sentence case",
+   488→      "camelCase": "camelCase",
+   489→      "pascalCase": "PascalCase",
+   490→      "snakeCase": "snake_case",
+   491→      "kebabCase": "kebab-case",
+   492→      "faq": [
+   493→        {
+   494→          "q": "Will accents be preserved?",
+   495→          "a": "Yes. All case conversions preserve Unicode characters including accented letters."
+   496→        }
+   497→      ]
+   498→    },
+   499→    "image-compressor": {
+   500→      "name": "Image Compressor",
+   501→      "short": "Compress images without losing quality",
+   502→      "description": "Compress JPG, PNG, and WebP images with adjustable quality. Drag-and-drop, before/after comparison, all client-side.",
+   503→      "input": "Drop your image",
+   504→      "output": "Compressed result",
+   505→      "quality": "Quality",
+   506→      "originalSize": "Original size",
+   507→      "compressedSize": "Compressed size",
+   508→      "faq": [
+   509→        {
+   510→          "q": "Are my images uploaded?",
+   511→          "a": "No. All compression happens locally using the HTML Canvas API."
+   512→        }
+   513→      ]
+   514→    },
+   515→    "image-resizer": {
+   516→      "name": "Image Resizer",
+   517→      "short": "Resize images to any dimensions",
+   518→      "description": "Resize images by width or height with optional aspect ratio lock. Drag-and-drop upload and instant download.",
+   519→      "input": "Drop your image",
+   520→      "output": "Resized image",
+   521→      "lockAspectRatio": "Lock aspect ratio",
+   522→      "faq": [
+   523→        {
+   524→          "q": "What's the maximum output size?",
+   525→          "a": "Up to your browser's canvas limit (typically 16,384 x 16,384 pixels)."
+   526→        }
+   527→      ]
+   528→    },
+   529→    "image-cropper": {
+   530→      "name": "Image Cropper",
+   531→      "short": "Crop images with precision",
+   532→      "description": "Crop images interactively with aspect-ratio presets and rotation. Download the cropped result instantly.",
+   533→      "input": "Drop your image",
+   534→      "output": "Cropped image",
+   535→      "aspectRatio": "Aspect ratio",
+   536→      "free": "Free",
+   537→      "square": "1:1 Square",
+   538→      "landscape": "4:3 Landscape",
+   539→      "portrait": "3:4 Portrait",
+   540→      "wide": "16:9 Wide",
+   541→      "rotate": "Rotate",
+   542→      "crop": "Crop",
+   543→      "faq": [
+   544→        {
+   545→          "q": "Can I crop to a custom aspect ratio?",
+   546→          "a": "Yes. Use the Free aspect ratio option to crop to any dimensions."
+   547→        }
+   548→      ]
+   549→    },
+   550→    "image-converter": {
+   551→      "name": "Image Format Converter",
+   552→      "short": "Convert images between PNG, JPG, WebP",
+   553→      "description": "Convert images between PNG, JPG/JPEG, and WebP formats with preview and quality controls.",
+   554→      "input": "Drop your image",
+   555→      "output": "Converted image",
+   556→      "targetFormat": "Target format",
+   557→      "faq": [
+   558→        {
+   559→          "q": "Which formats are supported?",
+   560→          "a": "PNG, JPG/JPEG, and WebP — covering all modern browser and web use cases."
+   561→        }
+   562→      ]
+   563→    },
+   564→    "svg-optimizer": {
+   565→      "name": "SVG Optimizer",
+   566→      "short": "Clean and minimize SVG markup",
+   567→      "description": "Optimize SVG markup by removing metadata, comments, and unnecessary attributes. See before/after file sizes.",
+   568→      "input": "SVG input",
+   569→      "inputPlaceholder": "<svg>...</svg>",
+   570→      "output": "Optimized SVG",
+   571→      "optimize": "Optimize",
+   572→      "originalSize": "Original size",
+   573→      "optimizedSize": "Optimized size",
+   574→      "faq": [
+   575→        {
+   576→          "q": "Will optimization break my SVG?",
+   577→          "a": "No. Only redundant data is removed — the visible result remains identical."
+   578→        }
+   579→      ]
+   580→    },
+   581→    "color-converter": {
+   582→      "name": "Color Converter & Picker",
+   583→      "short": "Convert between HEX, RGB, HSL",
+   584→      "description": "Pick colors and convert between HEX, RGB, and HSL formats with live preview and one-click copy.",
+   585→      "picker": "Color picker",
+   586→      "preview": "Preview",
+   587→      "hex": "HEX",
+   588→      "rgb": "RGB",
+   589→      "hsl": "HSL",
+   590→      "copyValue": "Copy value",
+   591→      "faq": [
+   592→        {
+   593→          "q": "Are these color values accurate?",
+   594→          "a": "Yes. All conversions use the standard sRGB color space."
+   595→        }
+   596→      ]
+   597→    },
+   598→    "timestamp-converter": {
+   599→      "name": "Timestamp Converter",
+   600→      "short": "Convert Unix timestamps and dates",
+   601→      "description": "Convert Unix timestamps to human-readable dates and vice versa, with seconds/milliseconds and timezone support.",
+   602→      "timestamp": "Unix timestamp",
+   603→      "date": "Date",
+   604→      "toHuman": "Timestamp → Date",
+   605→      "toTimestamp": "Date → Timestamp",
+   606→      "unit": "Unit",
+   607→      "seconds": "Seconds",
+   608→      "milliseconds": "Milliseconds",
+   609→      "timezone": "Timezone",
+   610→      "local": "Local",
+   611→      "utc": "UTC",
+   612→      "faq": [
+   613→        {
+   614→          "q": "What's the Unix timestamp format?",
+   615→          "a": "Seconds or milliseconds since January 1, 1970 UTC (the Unix epoch)."
+   616→        }
+   617→      ]
+   618→    },
+   619→    "video-converter": {
+   620→      "name": "Video Format Converter",
+   621→      "short": "Convert video formats in the browser",
+   622→      "description": "Convert video files between common formats using FFmpeg WASM. Fully client-side processing with progress feedback.",
+   623→      "input": "Drop your video",
+   624→      "output": "Converted video",
+   625→      "targetFormat": "Target format",
+   626→      "convert": "Convert",
+   627→      "faq": [
+   628→        {
+   629→          "q": "Why is conversion slow?",
+   630→          "a": "Conversion uses FFmpeg compiled to WebAssembly, which runs entirely in your browser. Speed depends on your device."
+   631→        }
+   632→      ]
+   633→    },
+   634→    "video-compressor": {
+   635→      "name": "Video Compressor",
+   636→      "short": "Compress videos client-side",
+   637→      "description": "Compress video files with quality/size controls using FFmpeg WASM. All processing happens in your browser.",
+   638→      "input": "Drop your video",
+   639→      "output": "Compressed video",
+   640→      "targetSize": "Target size (MB)",
+   641→      "crf": "Quality (CRF)",
+   642→      "compress": "Compress",
+   643→      "faq": [
+   644→        {
+   645→          "q": "What is CRF?",
+   646→          "a": "Constant Rate Factor — lower values produce higher quality but larger files. 18-28 is typical for web video."
+   647→        }
+   648→      ]
+   649→    },
+   650→    "audio-converter": {
+   651→      "name": "Audio Converter",
+   652→      "short": "Convert audio formats in the browser",
+   653→      "description": "Convert audio files between common formats (MP3, WAV, OGG) using FFmpeg WASM. Drag-and-drop with progress feedback.",
+   654→      "input": "Drop your audio",
+   655→      "output": "Converted audio",
+   656→      "targetFormat": "Target format",
+   657→      "convert": "Convert",
+   658→      "faq": [
+   659→        {
+   660→          "q": "Which audio formats are supported?",
+   661→          "a": "Common formats including MP3, WAV, OGG, and AAC, depending on browser codec support."
+   662→        }
+   663→      ]
+   664→    }
+   665→  },
+   666→  "seo": {
+   667→    "siteName": "ToolForge",
+   668→    "siteDescription": "Premium browser-based utility tools. 25 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
+   669→    "defaultTitle": "ToolForge — Premium Browser Utility Tools",
+   670→    "defaultDescription": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
+   671→  },
+   672→  "errors": {
+   673→    "invalidJson": "Invalid JSON: {message}",
+   674→    "invalidRegex": "Invalid regular expression: {message}",
+   675→    "invalidBase64": "Invalid Base64 input",
+   676→    "invalidUrl": "Invalid URL format",
+   677→    "fileTooLarge": "File exceeds maximum size of {size}MB",
+   678→    "unsupportedFormat": "Unsupported format: {format}",
+   679→    "conversionFailed": "Conversion failed: {message}",
+   680→    "compressionFailed": "Compression failed: {message}",
+   681→    "browserUnsupported": "Your browser doesn't support this operation",
+   682→    "ffmpegLoadFailed": "Failed to load FFmpeg. Please refresh and try again.",
+   683→    "canvasUnsupported": "Canvas API not supported in this browser",
+   684→    "clipboardDenied": "Clipboard access denied",
+   685→    "generic": "An error occurred. Please try again."
+   686→  }
+   687→}
+   688→

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#6366f1"/>
+    <stop offset="100%" stop-color="#8b5cf6"/>
+  </linearGradient>
+  <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="100%" stop-color="#e0e7ff"/>
+  </linearGradient>
+</defs>
+<!-- Background: rounded square with gradient -->
+<rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+<!-- Subtle inner highlight -->
+<rect x="0" y="0" width="512" height="256" rx="112" ry="112" fill="#ffffff" opacity="0.08"/>
+<!-- D letter (stylized, white) -->
+<g>
+  <path d="M 152 144 L 152 368 L 248 368
+           C 312 368 360 320 360 256
+           C 360 192 312 144 248 144 L 152 144 Z
+           M 200 188 L 248 188
+           C 286 188 312 218 312 256
+           C 312 294 286 324 248 324
+           L 200 324 L 200 188 Z"
+        fill="url(#glow)"/>
+</g>
+<!-- Digit/Tool accents: 4 small squares representing digital bits -->
+<g fill="#ffffff" opacity="0.85">
+  <rect x="384" y="148" width="32" height="32" rx="6"/>
+  <rect x="384" y="240" width="32" height="32" rx="6"/>
+  <rect x="384" y="332" width="32" height="32" rx="6"/>
+</g>
+</svg>
