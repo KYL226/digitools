@@ -26,7 +26,7 @@ import {
   Film,
   Video,
   Music,
-  Download,
+  CalendarDays,
 } from "lucide-react";
 
 export type ToolCategory =
@@ -283,13 +283,13 @@ export const TOOLS: ToolMeta[] = [
     keywords: ["audio", "convert", "mp3", "wav", "ogg"],
   },
   {
-    slug: "video-downloader",
+    slug: "tiktok-date-extractor",
     category: "media",
-    icon: Download,
-    i18nKey: "tools.video-downloader",
-    component: "./tools/video-downloader",
-    aliases: ["download", "youtube", "tiktok", "instagram", "facebook", "save"],
-    keywords: ["download", "video", "youtube", "tiktok", "instagram", "facebook", "mp3", "mp4", "save", "extract"],
+    icon: CalendarDays,
+    i18nKey: "tools.tiktok-date-extractor",
+    component: "./tools/tiktok-date-extractor",
+    aliases: ["tiktok", "date", "extract", "timestamp"],
+    keywords: ["tiktok", "date", "extract", "video", "id", "timestamp", "publication"],
   },
 ];
 

@@ -5,7 +5,7 @@
  *    cache-first with background revalidation. Lets the app launch offline.
  *  - Static assets in /public (logo, icons, ffmpeg WASM):
  *    stale-while-revalidate — serve from cache, update in background.
- *  - API + dynamic requests (mini-services, /api/proxy, /api/info):
+ *  - API + dynamic requests (/api/*):
  *    network-only — never cache dynamic content.
  *  - Same-origin navigations: network-first, fallback to cached shell.
  *
@@ -33,8 +33,6 @@ const PRECACHE_URLS = [
 
 // Routes that should ALWAYS go to the network (never cached).
 const NETWORK_ONLY = (url) => {
-  // Mini-services via Caddy (XTransformPort) and our own /api routes
-  if (url.searchParams.has("XTransformPort")) return true;
   if (url.pathname.startsWith("/api/")) return true;
   // FFmpeg WASM is 32MB — we let the browser HTTP cache handle it (it does
   // range requests and partial content properly). Don't shadow it in SW cache.
@@ -111,7 +109,7 @@ self.addEventListener("fetch", (event) => {
     return; // malformed URL, let the browser handle it
   }
 
-  // 1. Network-only for API / mini-services / FFmpeg WASM
+  // 1. Network-only for API / FFmpeg WASM
   if (NETWORK_ONLY(url)) {
     return; // default: browser fetches it
   }

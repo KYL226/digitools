@@ -75,9 +75,11 @@ export function Header() {
           className="flex items-center gap-2 shrink-0 group"
           aria-label={t("common.appName")}
         >
-          <div className="grid place-items-center h-8 w-8 rounded-lg bg-primary text-primary-foreground font-bold text-sm tracking-tight transition-transform group-hover:scale-105">
-            T
-          </div>
+          <img
+            src="/logo-digi.svg"
+            alt={t("common.appName")}
+            className="h-8 w-8 rounded-lg transition-transform group-hover:scale-105"
+          />
           <span className="font-bold text-base md:text-lg tracking-tight hidden sm:block">
             {t("common.appName")}
           </span>

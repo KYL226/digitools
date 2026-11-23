@@ -142,7 +142,7 @@
   },
   "home": {
     "heroTitle": "All your favorite tools, in one place",
-    "heroSubtitle": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
+    "heroSubtitle": "A premium collection of 26 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
     "heroCta": "Explore tools",
     "heroSecondaryCta": "Why DigiTools?",
     "featurePrivacyTitle": "Private by design",
@@ -662,71 +662,47 @@
         }
       ]
     },
-    "video-downloader": {
-      "name": "Video Downloader",
-      "short": "Download videos from YouTube, TikTok, Instagram",
-      "description": "Paste a video URL from YouTube, TikTok, Instagram, Facebook, Vimeo or X/Twitter to download it. Choose video (MP4) or audio (MP3) and pick the quality. The backend mini-service extracts the direct stream URL using yt-dlp, and the browser downloads it directly to you — your data never touches a third-party server.",
-      "urlLabel": "Video URL",
-      "placeholder": "https://www.youtube.com/watch?v=...",
-      "fetch": "Get formats",
-      "fetching": "Fetching video info...",
-      "videoMode": "Video (MP4)",
-      "audioMode": "Audio (MP3)",
-      "videoQuality": "Video quality",
-      "audioQuality": "Audio quality",
-      "noFormat": "No format available for this mode",
-      "download": "Download",
-      "downloading": "Starting download...",
-      "openOriginal": "Open original page",
+    "tiktok-date-extractor": {
+      "name": "TikTok Date Extractor",
+      "short": "Estimated publish date from a TikTok link",
+      "description": "Paste a TikTok video URL to reveal its estimated creation date. The date is derived from the video ID and shown in UTC.",
+      "urlLabel": "TikTok video link",
+      "placeholder": "https://www.tiktok.com/@user/video/...",
+      "extract": "Extract date",
+      "resultLabel": "ESTIMATED PUBLICATION DATE",
+      "timezone": "Timezone: UTC",
+      "note": "The displayed date is estimated from the video ID. It is not verified with TikTok. The result is shown in UTC.",
       "empty": {
-        "title": "Paste a video URL to get started",
-        "description": "Supports YouTube, TikTok, Instagram, Facebook, Vimeo, X/Twitter and more."
-      },
-      "privacy": "The download is performed by your browser directly from the video source. DigiTools's backend only extracts the direct URL — your video is never stored on our servers.",
-      "toast": {
-        "fetched": "Video info retrieved",
-        "downloading": "Download started"
+        "title": "Paste a TikTok video link to start",
+        "description": "Supports standard tiktok.com video URLs."
       },
       "errors": {
-        "emptyUrl": "Please paste a video URL first",
-        "fetchFailed": "Failed to fetch video info. The platform may block automated requests, or the URL is invalid/private.",
-        "downloadFailed": "Download failed. Try a different format or quality."
-      },
-      "detail": {
-        "format": "Format",
-        "resolution": "Resolution",
-        "size": "File size",
-        "bitrate": "Bitrate"
+        "emptyUrl": "Please paste a TikTok link first",
+        "invalidUrl": "The entered URL is not valid.",
+        "notTikTok": "This URL does not come from TikTok.",
+        "noVideoId": "Could not find a Video ID in this URL.",
+        "invalidId": "The TikTok link contains an invalid identifier.",
+        "noTimestamp": "Impossible to extract a date from this video.",
+        "invalidTimestamp": "The obtained date is invalid.",
+        "invalidDate": "Could not convert the timestamp into a date."
       },
       "faq": [
         {
-          "q": "Why does the download sometimes fail?",
-          "a": "Some platforms (especially YouTube) actively block automated access. If a download fails, try again later, or use a different platform. Private videos and member-only content are never accessible."
+          "q": "How is the date calculated?",
+          "a": "TikTok video IDs encode a creation timestamp. The first 31 bits of the ID are read as a Unix timestamp, then displayed in UTC."
         },
         {
-          "q": "Why are there two modes (Video and Audio)?",
-          "a": "Video mode downloads the full MP4 with both video and audio. Audio mode extracts only the audio track as MP3, ideal for music and podcasts — much smaller file size."
-        },
-        {
-          "q": "What about video quality?",
-          "a": "Available qualities depend on the source. Higher resolutions (1080p, 4K) require more bandwidth and storage. For YouTube, 720p is usually a good balance of quality and size."
-        },
-        {
-          "q": "Is this legal?",
-          "a": "Downloading videos for personal, offline use is generally allowed in most jurisdictions, but redistributing copyrighted content is not. Always respect the platform's terms of service and the creator's rights."
-        },
-        {
-          "q": "Does the video pass through DigiTools servers?",
-          "a": "No. Our backend only extracts the direct stream URL using yt-dlp. The actual video bytes flow directly from the source platform to your browser."
+          "q": "Is the date exact?",
+          "a": "It is an estimate derived from the ID structure, not a value fetched from TikTok. It is usually very close to the real publish time."
         }
       ]
     }
   },
   "seo": {
     "siteName": "DigiTools",
-    "siteDescription": "Premium browser-based utility tools. 25 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
+    "siteDescription": "Premium browser-based utility tools. 26 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
     "defaultTitle": "DigiTools — Premium Browser Utility Tools",
-    "defaultDescription": "A premium collection of 25 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
+    "defaultDescription": "A premium collection of 26 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
   },
   "errors": {
     "invalidJson": "Invalid JSON: {message}",

@@ -1,6 +1,5 @@
 "use client";
 
-import { Github, Heart } from "lucide-react";
 import { useI18n } from "@/lib/i18n/i18n-context";
 import { useAppStore } from "@/store/use-app-store";
 import { CATEGORIES, TOOLS } from "@/data/tools";
@@ -106,7 +105,7 @@ export function Footer() {
             © {new Date().getFullYear()} {t("common.appName")}. {t("common.allRightsReserved")}.
           </p>
           <p className="flex items-center gap-1.5">
-            {t("footer.madeWith")} <Heart className="h-3 w-3 fill-red-500 text-red-500" /> · Next.js · Tailwind · shadcn/ui
+            Digit'Tech Group
           </p>
         </div>
       </div>

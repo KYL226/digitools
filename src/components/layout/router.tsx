@@ -35,7 +35,7 @@ const toolComponents: Record<string, React.LazyExoticComponent<React.ComponentTy
   "video-converter": lazy(() => import("@/components/tools/video-converter").then((m) => ({ default: m.VideoConverter }))),
   "video-compressor": lazy(() => import("@/components/tools/video-compressor").then((m) => ({ default: m.VideoCompressor }))),
   "audio-converter": lazy(() => import("@/components/tools/audio-converter").then((m) => ({ default: m.AudioConverter }))),
-  "video-downloader": lazy(() => import("@/components/tools/video-downloader").then((m) => ({ default: m.VideoDownloader }))),
+  "tiktok-date-extractor": lazy(() => import("@/components/tools/tiktok-date-extractor").then((m) => ({ default: m.TikTokDateExtractor }))),
 };
 
 export function Router() {

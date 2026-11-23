@@ -142,7 +142,7 @@
   },
   "home": {
     "heroTitle": "Tous vos outils préférés, au même endroit",
-    "heroSubtitle": "Une collection premium de 25 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et soigneusement conçu.",
+    "heroSubtitle": "Une collection premium de 26 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et soigneusement conçu.",
     "heroCta": "Explorer les outils",
     "heroSecondaryCta": "Pourquoi DigiTools ?",
     "featurePrivacyTitle": "Privé par conception",
@@ -662,71 +662,47 @@
         }
       ]
     },
-    "video-downloader": {
-      "name": "Téléchargeur de Vidéos",
-      "short": "Téléchargez des vidéos YouTube, TikTok, Instagram",
-      "description": "Collez un lien vidéo depuis YouTube, TikTok, Instagram, Facebook, Vimeo ou X/Twitter pour la télécharger. Choisissez vidéo (MP4) ou audio (MP3) et la qualité. Le mini-service backend extrait l'URL directe du flux avec yt-dlp, puis votre navigateur télécharge la vidéo directement — vos données ne transitent jamais par un serveur tiers.",
-      "urlLabel": "URL de la vidéo",
-      "placeholder": "https://www.youtube.com/watch?v=...",
-      "fetch": "Récupérer les formats",
-      "fetching": "Récupération des infos vidéo...",
-      "videoMode": "Vidéo (MP4)",
-      "audioMode": "Audio (MP3)",
-      "videoQuality": "Qualité vidéo",
-      "audioQuality": "Qualité audio",
-      "noFormat": "Aucun format disponible pour ce mode",
-      "download": "Télécharger",
-      "downloading": "Démarrage du téléchargement...",
-      "openOriginal": "Ouvrir la page originale",
+    "tiktok-date-extractor": {
+      "name": "Extracteur de Date TikTok",
+      "short": "Date de publication estimée depuis un lien TikTok",
+      "description": "Collez le lien d'une vidéo TikTok pour découvrir sa date de création estimée. La date est déduite de l'identifiant vidéo et affichée en UTC.",
+      "urlLabel": "Lien de la vidéo TikTok",
+      "placeholder": "https://www.tiktok.com/@user/video/...",
+      "extract": "Extraire la date",
+      "resultLabel": "DATE DE PUBLICATION ESTIMÉE",
+      "timezone": "Fuseau horaire : UTC",
+      "note": "La date affichée est estimée à partir de l'identifiant de la vidéo. Elle n'est pas vérifiée auprès de TikTok. Le résultat est présenté en UTC.",
       "empty": {
-        "title": "Collez une URL de vidéo pour commencer",
-        "description": "Supporte YouTube, TikTok, Instagram, Facebook, Vimeo, X/Twitter et plus."
-      },
-      "privacy": "Le téléchargement est effectué directement par votre navigateur depuis la source vidéo. Le backend de DigiTools ne fait qu'extraire l'URL directe — votre vidéo n'est jamais stockée sur nos serveurs.",
-      "toast": {
-        "fetched": "Infos vidéo récupérées",
-        "downloading": "Téléchargement démarré"
+        "title": "Collez un lien de vidéo TikTok pour commencer",
+        "description": "Prend en charge les URL standard tiktok.com."
       },
       "errors": {
-        "emptyUrl": "Veuillez coller une URL de vidéo d'abord",
-        "fetchFailed": "Échec de la récupération des infos. La plateforme bloque peut-être les requêtes automatisées, ou l'URL est invalide/privée.",
-        "downloadFailed": "Échec du téléchargement. Essayez un autre format ou qualité."
-      },
-      "detail": {
-        "format": "Format",
-        "resolution": "Résolution",
-        "size": "Taille du fichier",
-        "bitrate": "Débit"
+        "emptyUrl": "Veuillez coller un lien TikTok d'abord",
+        "invalidUrl": "L'URL saisie n'est pas valide.",
+        "notTikTok": "Cette URL ne provient pas de TikTok.",
+        "noVideoId": "Impossible de trouver le Video ID dans cette URL.",
+        "invalidId": "Le lien TikTok contient un identifiant invalide.",
+        "noTimestamp": "Impossible d'extraire la date de cette vidéo.",
+        "invalidTimestamp": "La date obtenue est invalide.",
+        "invalidDate": "Impossible de convertir le timestamp en date."
       },
       "faq": [
         {
-          "q": "Pourquoi le téléchargement échoue-t-il parfois ?",
-          "a": "Certaines plateformes (surtout YouTube) bloquent activement l'accès automatisé. Si un téléchargement échoue, réessayez plus tard, ou utilisez une autre plateforme. Les vidéos privées et le contenu réservé aux membres ne sont jamais accessibles."
+          "q": "Comment la date est-elle calculée ?",
+          "a": "Les identifiants vidéo TikTok encodent un horodatage de création. Les 31 premiers bits de l'ID sont lus comme un timestamp Unix, puis affichés en UTC."
         },
         {
-          "q": "Pourquoi deux modes (Vidéo et Audio) ?",
-          "a": "Le mode Vidéo télécharge le MP4 complet avec vidéo et audio. Le mode Audio extrait uniquement la piste audio en MP3, idéal pour la musique et les podcasts — fichier beaucoup plus petit."
-        },
-        {
-          "q": "Qu'en est-il de la qualité vidéo ?",
-          "a": "Les qualités disponibles dépendent de la source. Les résolutions élevées (1080p, 4K) nécessitent plus de bande passante et de stockage. Pour YouTube, 720p est généralement un bon compromis qualité/taille."
-        },
-        {
-          "q": "Est-ce légal ?",
-          "a": "Télécharger des vidéos pour un usage personnel hors ligne est généralement autorisé dans la plupart des juridictions, mais la redistribution de contenu protégé par le droit d'auteur ne l'est pas. Respectez toujours les conditions d'utilisation de la plateforme et les droits des créateurs."
-        },
-        {
-          "q": "La vidéo passe-t-elle par les serveurs de DigiTools ?",
-          "a": "Non. Notre backend ne fait qu'extraire l'URL directe du flux avec yt-dlp. Les octets vidéo circulent directement de la plateforme source vers votre navigateur."
+          "q": "La date est-elle exacte ?",
+          "a": "C'est une estimation déduite de la structure de l'ID, pas une valeur récupérée auprès de TikTok. Elle est généralement très proche de l'heure réelle de publication."
         }
       ]
     }
   },
   "seo": {
     "siteName": "DigiTools",
-    "siteDescription": "Outils utilitaires navigateur haut de gamme. 25 outils pour développeurs, rédacteurs et créateurs. Rapide, privé, bilingue (anglais/français).",
+    "siteDescription": "Outils utilitaires navigateur haut de gamme. 26 outils pour développeurs, rédacteurs et créateurs. Rapide, privé, bilingue (anglais/français).",
     "defaultTitle": "DigiTools — Outils utilitaires navigateur haut de gamme",
-    "defaultDescription": "Une collection premium de 25 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et bilingue."
+    "defaultDescription": "Une collection premium de 26 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et bilingue."
   },
   "errors": {
     "invalidJson": "JSON invalide : {message}",

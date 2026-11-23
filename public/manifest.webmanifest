@@ -67,13 +67,6 @@
       "icons": [{ "src": "/favicon-32.png", "sizes": "32x32" }]
     },
     {
-      "name": "Video Downloader",
-      "short_name": "Downloader",
-      "description": "Download YouTube, TikTok, Instagram videos",
-      "url": "/#/tools/video-downloader",
-      "icons": [{ "src": "/favicon-32.png", "sizes": "32x32" }]
-    },
-    {
       "name": "Password Generator",
       "short_name": "Password",
       "description": "Generate secure passwords",
