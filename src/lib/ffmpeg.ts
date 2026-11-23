@@ -9,7 +9,18 @@ import type { FFmpeg } from "@ffmpeg/ffmpeg";
 let ffmpegInstance: FFmpeg | null = null;
 let loadingPromise: Promise<FFmpeg> | null = null;
 
-// Local URLs — these are served from /public/ffmpeg/ by Next.js
+// Local URLs — served from /public/ffmpeg/ by Next.js.
+// @ffmpeg/ffmpeg does `new URL(classWorkerURL, import.meta.url)`; if the
+// bundler rewrites import.meta.url to file://..., a root-relative path
+// becomes file:///ffmpeg/... and the browser blocks the Worker (origin mismatch).
+// Absolute same-origin URLs ignore that base and always resolve to https://<site>/...
+function siteUrl(path: string): string {
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return new URL(path, window.location.origin).href;
+  }
+  return path;
+}
+
 const FFMPEG_CORE_URL = "/ffmpeg/ffmpeg-core.js";
 const FFMPEG_WASM_URL = "/ffmpeg/ffmpeg-core.wasm";
 const FFMPEG_WORKER_URL = "/ffmpeg/esm/worker.js";
@@ -45,11 +56,12 @@ export async function getFFmpeg(opts?: FFmpegLoadOptions): Promise<FFmpeg> {
       });
     }
 
-    // Load with local URLs — no toBlobURL needed since same-origin
+    // Load with local same-origin URLs — absolute so classWorkerURL cannot
+    // be resolved against a file:// import.meta.url.
     await ffmpeg.load({
-      coreURL: FFMPEG_CORE_URL,
-      wasmURL: FFMPEG_WASM_URL,
-      classWorkerURL: FFMPEG_WORKER_URL,
+      coreURL: siteUrl(FFMPEG_CORE_URL),
+      wasmURL: siteUrl(FFMPEG_WASM_URL),
+      classWorkerURL: siteUrl(FFMPEG_WORKER_URL),
     });
 
     ffmpegInstance = ffmpeg;
