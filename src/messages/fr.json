@@ -704,6 +704,93 @@
     "defaultTitle": "DigiTools — Outils utilitaires navigateur haut de gamme",
     "defaultDescription": "Une collection premium de 26 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et bilingue."
   },
+  "legal": {
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "updated": "Dernière mise à jour : novembre 2026",
+      "intro": "DigiTools est conçu pour la confidentialité. Cette politique explique ce qui se passe (et ce qui ne se passe pas) lorsque vous utilisez nos outils.",
+      "sections": [
+        {
+          "heading": "Aucun compte, aucun tracking",
+          "body": "DigiTools ne nécessite aucun compte. Nous n'utilisons ni analytics, ni traceurs publicitaires, ni pixels tiers. Nous ne vendons ni ne partageons de données personnelles, car nous n'en collectons pas."
+        },
+        {
+          "heading": "Le traitement reste dans votre navigateur",
+          "body": "Tous les outils s'exécutent entièrement dans votre navigateur. Vos fichiers, textes et résultats ne sont jamais envoyés vers un serveur. La conversion, la compression et le formatage se font localement sur votre appareil."
+        },
+        {
+          "heading": "Stockage local uniquement",
+          "body": "Nous enregistrons quelques préférences (thème, langue) dans votre navigateur via localStorage et un cookie. Elles ne quittent pas votre appareil et ne sont liées à aucune identité."
+        },
+        {
+          "heading": "Aucune conservation de contenu utilisateur",
+          "body": "Le traitement étant local, nous n'avons aucune copie des données saisies ni des fichiers ouverts. Fermer l'onglet efface la page ; videz le stockage du navigateur pour supprimer vos préférences."
+        },
+        {
+          "heading": "Modifications",
+          "body": "Si cette politique change de manière significative, nous mettons à jour cette page. L'utilisation continue de DigiTools après ces changements vaut acceptation de la politique mise à jour."
+        },
+        {
+          "heading": "Contact",
+          "body": "Une question sur la confidentialité ? Contactez Digit'Tech Group, exploitant de DigiTools."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "updated": "Dernière mise à jour : novembre 2026",
+      "intro": "En utilisant DigiTools, vous acceptez ces conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le site.",
+      "sections": [
+        {
+          "heading": "Utilisation du service",
+          "body": "DigiTools fournit des outils navigateur gratuits pour développeurs, rédacteurs et créateurs. Vous pouvez les utiliser à des fins personnelles et commerciales dans le cadre de la loi applicable."
+        },
+        {
+          "heading": "Absence de garantie",
+          "body": "Les outils sont fournis « en l'état », sans aucune garantie. Nous ne garantissons ni la disponibilité continue, ni l'exactitude des résultats, ni l'adéquation à un usage particulier. Vérifiez toujours les sorties critiques."
+        },
+        {
+          "heading": "Votre responsabilité",
+          "body": "Vous êtes responsable des données et fichiers que vous traitez. N'utilisez pas DigiTools à des fins illégales. Le traitement étant local, vous seul contrôlez et conservez votre contenu."
+        },
+        {
+          "heading": "Propriété intellectuelle",
+          "body": "Le nom, le logo, l'interface et le code de DigiTools appartiennent à Digit'Tech Group ou à ses concédants. Vous ne pouvez pas copier ni redistribuer le site en totalité sans autorisation."
+        },
+        {
+          "heading": "Limitation de responsabilité",
+          "body": "Dans la mesure maximale permise par la loi, Digit'Tech Group ne saurait être tenu responsable de tout dommage indirect, accessoire ou consécutif découlant de votre utilisation de DigiTools."
+        },
+        {
+          "heading": "Modifications",
+          "body": "Nous pouvons mettre à jour ces conditions. La date de dernière mise à jour en haut de page reflète la version la plus récente. L'utilisation continue vaut acceptation des changements."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "updated": "Dernière mise à jour : novembre 2026",
+      "intro": "DigiTools utilise un ensemble minimal de cookies et d'entrées de stockage local. Aucun cookie publicitaire ni de suivi inter-sites n'est utilisé.",
+      "sections": [
+        {
+          "heading": "Préférences essentielles",
+          "body": "Nous enregistrons votre choix de langue (toolforge-locale) et votre préférence de thème pour que le site s'en souvienne entre deux visites. Ce sont des cookies fonctionnels, pas de tracking."
+        },
+        {
+          "heading": "Service worker",
+          "body": "Un service worker peut mettre en cache des ressources pour un usage hors ligne. Il ne profile pas et n'envoie aucune donnée à des tiers."
+        },
+        {
+          "heading": "Aucun cookie publicitaire",
+          "body": "Nous n'utilisons ni Google Analytics, ni réseaux publicitaires, ni pixels de réseaux sociaux. Il n'y a aucun cookie de suivi tiers sur DigiTools."
+        },
+        {
+          "heading": "Gérer les cookies",
+          "body": "Vous pouvez effacer les cookies et les données de site à tout moment dans les paramètres de votre navigateur. Le site fonctionnera ; il faudra peut-être resélectionner la langue ou le thème."
+        }
+      ]
+    }
+  },
   "errors": {
     "invalidJson": "JSON invalide : {message}",
     "invalidRegex": "Expression régulière invalide : {message}",

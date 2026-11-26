@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/layout/theme-provider";
-import { I18nProvider } from "@/lib/i18n/i18n-context";
+import { I18nProvider, type Locale } from "@/lib/i18n/i18n-context";
 import { AppShell } from "@/components/layout/app-shell";
+import { StructuredData } from "@/components/layout/structured-data";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,13 +21,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   applicationName: "DigiTools",
   title: {
-    default: "DigiTools — Premium Browser Utility Tools",
-    template: "%s — DigiTools",
+    default: "DigiTools — Free Browser Tools for Developers & Creators",
+    template: "%s | DigiTools",
   },
   description:
-    "A premium collection of 25+ browser-based utilities for developers, writers, and creators. Fast, private, bilingual (English/French). Works offline.",
+    "26 free browser-based tools for developers, writers, and creators. Format JSON, compress images, generate QR codes and more. Fast, private, works offline.",
   manifest: "/manifest.webmanifest",
   keywords: [
     "utility tools",
@@ -36,6 +41,7 @@ export const metadata: Metadata = {
     "regex tester",
     "online tools",
     "browser tools",
+    "free tools",
     "pwa",
   ],
   authors: [{ name: "DigiTools" }],
@@ -63,23 +69,27 @@ export const metadata: Metadata = {
     email: false,
   },
   openGraph: {
-    title: "DigiTools — Premium Browser Utility Tools",
+    title: "DigiTools — Free Browser Tools for Developers & Creators",
     description:
-      "25+ browser-based utilities. Fast, private, bilingual. Installable PWA, works offline.",
+      "26 free browser tools. Format JSON, compress images, convert media and more. Fast, private, bilingual, works offline.",
     siteName: "DigiTools",
     type: "website",
+    url: SITE_URL,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "DigiTools" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DigiTools — Premium Browser Utility Tools",
+    title: "DigiTools — Free Browser Tools for Developers & Creators",
     description:
-      "25+ browser-based utilities. Fast, private, bilingual. Installable PWA, works offline.",
+      "26 free browser tools. Format JSON, compress images, convert media and more. Fast, private, bilingual.",
     images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -95,17 +105,22 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({
+const SW_REGISTER_SRC = "/sw-register.js";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Read locale cookie on the server so SSR HTML matches the first
+  // client render (avoids hydration mismatch on bilingual pages).
+  const cookieStore = await cookies();
+  const initialLocale: Locale =
+    cookieStore.get("toolforge-locale")?.value === "fr" ? "fr" : "en";
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={initialLocale} suppressHydrationWarning>
       <head>
-        <link rel="alternate" hrefLang="en" href="/" />
-        <link rel="alternate" hrefLang="fr" href="/" />
-        <link rel="alternate" hrefLang="x-default" href="/" />
         {/* PWA: apple-touch icon, SVG favicon for modern browsers */}
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/svg+xml" href="/logo-digi.svg" />
@@ -114,6 +129,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="DigiTools" />
+        {/* JSON-LD structured data (server-rendered into HTML) */}
+        <StructuredData />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
@@ -124,28 +141,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <I18nProvider>
+          <I18nProvider initialLocale={initialLocale}>
             <AppShell>{children}</AppShell>
             <Toaster position="bottom-right" richColors closeButton />
-            <ServiceWorkerRegistrar />
           </I18nProvider>
         </ThemeProvider>
+        <Script id="sw-register" strategy="afterInteractive" src={SW_REGISTER_SRC} />
       </body>
     </html>
-  );
-}
-
-/**
- * Registers the DigiTools service worker for offline support.
- * Client-side only — wrapped in a try/catch so it never crashes the page.
- * The inline script is tiny (~600 bytes) and runs after the page loads.
- */
-function ServiceWorkerRegistrar() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `(function(){if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js',{scope:'/'}).then(function(reg){console.log('[DigiTools] Service Worker registered:',reg.scope);setInterval(function(){reg.update();},3600000);}).catch(function(err){console.warn('[DigiTools] SW registration failed:',err);});});}})();`,
-      }}
-    />
   );
 }

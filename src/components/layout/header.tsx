@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, Search } from "lucide-react";
 import { useAppStore } from "@/store/use-app-store";
 import { useI18n } from "@/lib/i18n/i18n-context";
 import { Button } from "@/components/ui/button";
@@ -19,11 +21,12 @@ import {
 } from "@/components/ui/sheet";
 
 export function Header() {
-  const { t, locale } = useI18n();
-  const { navigate, goHome, searchQuery, setSearch, route } = useAppStore();
+  const { t } = useI18n();
+  const router = useRouter();
+  const pathname = usePathname();
+  const { searchQuery, setSearch } = useAppStore();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [localSearch, setLocalSearch] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,10 +34,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setLocalSearch(searchQuery);
-  }, [searchQuery]);
 
   // Keyboard shortcut: / focuses search
   useEffect(() => {
@@ -50,14 +49,12 @@ export function Header() {
   }, []);
 
   const submitSearch = () => {
-    setSearch(localSearch);
-    if (route.name !== "home") {
-      goHome();
+    if (pathname !== "/") {
+      router.push("/");
     }
   };
 
   const onSearchChange = (v: string) => {
-    setLocalSearch(v);
     setSearch(v);
   };
 
@@ -70,8 +67,8 @@ export function Header() {
     >
       <div className="mx-auto flex h-14 md:h-16 max-w-7xl items-center gap-2 md:gap-4 px-4 md:px-6">
         {/* Logo */}
-        <button
-          onClick={goHome}
+        <Link
+          href="/"
           className="flex items-center gap-2 shrink-0 group"
           aria-label={t("common.appName")}
         >
@@ -83,7 +80,7 @@ export function Header() {
           <span className="font-bold text-base md:text-lg tracking-tight hidden sm:block">
             {t("common.appName")}
           </span>
-        </button>
+        </Link>
 
         {/* Search */}
         <div className="relative flex-1 max-w-xl mx-auto hidden md:block">
@@ -91,7 +88,7 @@ export function Header() {
           <Input
             id="global-search"
             type="search"
-            value={localSearch}
+            value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submitSearch()}
             onFocus={submitSearch}
@@ -129,8 +126,9 @@ export function Header() {
                   <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="search"
-                    value={localSearch}
+                    value={searchQuery}
                     onChange={(e) => onSearchChange(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && submitSearch()}
                     placeholder={t("common.searchPlaceholder")}
                     className="pl-9 h-9"
                   />
@@ -141,12 +139,10 @@ export function Header() {
                     {t("common.categories")}
                   </p>
                   {CATEGORIES.map((cat) => (
-                    <button
+                    <Link
                       key={cat.id}
-                      onClick={() => {
-                        navigate({ name: "category", category: cat.id });
-                        setMobileOpen(false);
-                      }}
+                      href={`/category/${cat.id}`}
+                      onClick={() => setMobileOpen(false)}
                       className="w-full flex items-center gap-3 px-2 py-2 text-sm rounded-md hover:bg-accent transition-colors text-left"
                     >
                       <cat.icon className="h-4 w-4 text-muted-foreground" />
@@ -154,7 +150,7 @@ export function Header() {
                       <span className="ml-auto text-xs text-muted-foreground">
                         {TOOLS.filter((tl) => tl.category === cat.id).length}
                       </span>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>

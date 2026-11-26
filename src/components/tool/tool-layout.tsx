@@ -1,9 +1,10 @@
 "use client";
 
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 import { useI18n } from "@/lib/i18n/i18n-context";
-import { useAppStore } from "@/store/use-app-store";
 import { getToolBySlug, type ToolMeta } from "@/data/tools";
 import {
   Breadcrumb,
@@ -30,14 +31,16 @@ interface ToolLayoutProps {
 
 export function ToolLayout({ slug, children }: ToolLayoutProps) {
   const { t } = useI18n();
-  const { goHome, goToCategory } = useAppStore();
+  const router = useRouter();
   const tool = getToolBySlug(slug);
 
   if (!tool) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-12 text-center">
         <p>Tool not found.</p>
-        <Button onClick={goHome} className="mt-4">{t("common.backToHome")}</Button>
+        <Button asChild className="mt-4">
+          <Link href="/">{t("common.backToHome")}</Link>
+        </Button>
       </div>
     );
   }
@@ -51,17 +54,16 @@ export function ToolLayout({ slug, children }: ToolLayoutProps) {
       <Breadcrumb className="mb-4 md:mb-6">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink onClick={goHome} className="cursor-pointer">
-              {t("common.backToTools")}
+            <BreadcrumbLink asChild>
+              <Link href="/">{t("common.backToTools")}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink
-              onClick={() => goToCategory(tool.category)}
-              className="cursor-pointer"
-            >
-              {t(`categories.${tool.category}.name`)}
+            <BreadcrumbLink asChild>
+              <Link href={`/category/${tool.category}`}>
+                {t(`categories.${tool.category}.name`)}
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
@@ -88,7 +90,9 @@ export function ToolLayout({ slug, children }: ToolLayoutProps) {
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
           <Badge variant="secondary" className="gap-1">
-            {t(`categories.${tool.category}.name`)}
+            <Link href={`/category/${tool.category}`} className="hover:text-foreground">
+              {t(`categories.${tool.category}.name`)}
+            </Link>
           </Badge>
           <Badge variant="outline" className="gap-1 border-emerald-500/30 text-emerald-600 dark:text-emerald-400">
             <ShieldCheck className="h-3 w-3" />
@@ -149,9 +153,11 @@ export function ToolLayout({ slug, children }: ToolLayoutProps) {
 
       {/* Back link */}
       <div className="mt-10">
-        <Button variant="ghost" size="sm" onClick={goHome} className="gap-1.5">
-          <ArrowLeft className="h-4 w-4" />
-          {t("common.backToTools")}
+        <Button variant="ghost" size="sm" asChild className="gap-1.5">
+          <Link href="/">
+            <ArrowLeft className="h-4 w-4" />
+            {t("common.backToTools")}
+          </Link>
         </Button>
       </div>
     </article>
@@ -164,12 +170,11 @@ interface ToolCardProps {
 
 export function ToolCard({ tool }: ToolCardProps) {
   const { t } = useI18n();
-  const { goToTool } = useAppStore();
   const Icon = tool.icon;
 
   return (
-    <button
-      onClick={() => goToTool(tool.slug)}
+    <Link
+      href={`/tools/${tool.slug}`}
       className="group relative flex flex-col items-start gap-3 rounded-2xl border border-border/60 bg-card p-4 md:p-5 text-left transition-all hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
     >
       <div className="grid place-items-center h-10 w-10 md:h-11 md:w-11 rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -186,6 +191,6 @@ export function ToolCard({ tool }: ToolCardProps) {
       <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-5">
         {t(`categories.${tool.category}.name`)}
       </Badge>
-    </button>
+    </Link>
   );
 }

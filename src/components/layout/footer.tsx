@@ -1,12 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useI18n } from "@/lib/i18n/i18n-context";
-import { useAppStore } from "@/store/use-app-store";
 import { CATEGORIES, TOOLS } from "@/data/tools";
 
 export function Footer() {
   const { t } = useI18n();
-  const { navigate, goHome } = useAppStore();
 
   return (
     <footer className="mt-auto border-t border-border/60 bg-muted/30">
@@ -14,16 +13,18 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 space-y-3">
-            <button
-              onClick={goHome}
+            <Link
+              href="/"
               className="flex items-center gap-2"
               aria-label={t("common.appName")}
             >
-              <div className="grid place-items-center h-8 w-8 rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-                T
-              </div>
+              <img
+                src="/logo-digi.svg"
+                alt={t("common.appName")}
+                className="h-8 w-8 rounded-lg transition-transform group-hover:scale-105"
+              />
               <span className="font-bold text-base">{t("common.appName")}</span>
-            </button>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t("footer.description")}
             </p>
@@ -43,12 +44,12 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {CATEGORIES.map((cat) => (
                 <li key={cat.id}>
-                  <button
-                    onClick={() => navigate({ name: "category", category: cat.id })}
+                  <Link
+                    href={`/category/${cat.id}`}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {t(`categories.${cat.id}.name`)}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,39 +63,54 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {TOOLS.slice(0, 6).map((tool) => (
                 <li key={tool.slug}>
-                  <button
-                    onClick={() => navigate({ name: "tool", slug: tool.slug })}
+                  <Link
+                    href={`/tools/${tool.slug}`}
                     className="text-muted-foreground hover:text-foreground transition-colors text-left"
                   >
                     {t(`tools.${tool.slug}.name`)}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Product */}
+          {/* Product / Legal */}
           <div className="space-y-3">
             <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
               {t("footer.product")}
             </p>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  onClick={goHome}
+                <Link
+                  href="/"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {t("footer.allTools")}
-                </button>
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">{t("footer.privacy")}</span>
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.privacy")}
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">{t("footer.terms")}</span>
+                <Link
+                  href="/terms"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.terms")}
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">{t("footer.cookies")}</span>
+                <Link
+                  href="/cookies"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.cookies")}
+                </Link>
               </li>
             </ul>
           </div>

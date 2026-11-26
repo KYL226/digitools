@@ -63,29 +63,38 @@ function getStoredLocale(): Locale | null {
   return null;
 }
 
-// Always start with "en" on both server and client first render so that
-// hydration matches. The actual user-preferred locale is detected in a
-// post-mount effect below.
-const SERVER_LOCALE: Locale = "en";
+interface I18nProviderProps {
+  children: ReactNode;
+  /**
+   * Locale determined on the server (from the `toolforge-locale` cookie).
+   * Server and client first render MUST use the same value to avoid
+   * hydration mismatches. Defaults to "en" when not provided.
+   */
+  initialLocale?: Locale;
+}
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(SERVER_LOCALE);
+export function I18nProvider({ children, initialLocale = "en" }: I18nProviderProps) {
+  // Seed with the server-provided locale so SSR HTML matches the first
+  // client render. Detection of browser preference happens after mount
+  // only when there is no explicit cookie/initial locale.
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const [hasMounted, setHasMounted] = useState(false);
 
-  // Detect user's preferred locale AFTER mount so server and client render
-  // the same initial HTML (avoiding hydration mismatch). This is a legitimate
-  // use of setState-in-effect because the detected value is external state
-  // (browser localStorage + navigator.languages) that isn't available on the
-  // server, and React specifically supports this pattern for client-only data.
+  // Post-mount: persist choice + reflect <html lang>. If the server already
+  // sent a locale (cookie), we keep it — no second-guessing with navigator.
   /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
-    const stored = getStoredLocale();
-    const detected = stored ?? detectBrowserLocale();
-    if (detected !== SERVER_LOCALE) {
-      setLocaleState(detected);
+    if (!hasMounted) {
+      // First visit (no cookie → server sent "en"): detect browser language.
+      const stored = getStoredLocale();
+      const detected = stored ?? detectBrowserLocale();
+      if (detected !== initialLocale) {
+        setLocaleState(detected);
+      }
+      setHasMounted(true);
+      return;
     }
-    setHasMounted(true);
-  }, []);
+  }, [hasMounted, initialLocale]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
   // Persist + reflect <html lang> on locale change.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
 import { ArrowRight, Search, ShieldCheck, Zap, Globe, Gift, Sparkles, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n/i18n-context";
 import { useAppStore } from "@/store/use-app-store";
@@ -14,7 +15,7 @@ import frMessages from "@/messages/fr.json";
 
 export function Home() {
   const { t, locale } = useI18n();
-  const { searchQuery, setSearch, navigate, selectedCategory, setCategory } = useAppStore();
+  const { searchQuery, setSearch } = useAppStore();
 
   // Build search index for both languages
   const searchIndex = useMemo(() => {
@@ -45,11 +46,6 @@ export function Home() {
       .filter((idx) => idx.text.includes(q))
       .map((idx) => idx.tool);
   }, [searchQuery, searchIndex]);
-
-  const categoryTools = useMemo(() => {
-    if (!selectedCategory) return filteredTools;
-    return filteredTools.filter((t) => t.category === selectedCategory);
-  }, [filteredTools, selectedCategory]);
 
   const hasSearch = searchQuery.trim().length > 0;
 
@@ -138,8 +134,65 @@ export function Home() {
         </div>
       </section>
 
+      {/* Category filter + Tool grid */}
+      <section className="mx-auto max-w-7xl px-4 md:px-6 py-8 md:py-12">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight">
+              {hasSearch ? t("common.results") : t("home.allTools")}
+            </h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              {filteredTools.length} / {TOOLS.length}
+            </p>
+          </div>
+
+          {/* Category chips */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            <Link
+              href="/"
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
+                "border-primary bg-primary text-primary-foreground"
+              )}
+            >
+              {t("common.allCategories")}
+            </Link>
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/category/${cat.id}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background hover:bg-accent px-3 py-1.5 text-xs font-medium transition-colors"
+              >
+                <cat.icon className="h-3 w-3" />
+                {t(`categories.${cat.id}.name`)}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Tools grid */}
+        {filteredTools.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            {filteredTools.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center text-center py-16">
+            <div className="grid place-items-center h-12 w-12 rounded-full bg-muted text-muted-foreground mb-3">
+              <Search className="h-6 w-6" />
+            </div>
+            <p className="text-sm font-medium">{t("common.searchEmpty")}</p>
+            <p className="text-xs text-muted-foreground mt-1">{t("common.searchHint")}</p>
+            <Button variant="outline" size="sm" className="mt-4" onClick={() => setSearch("")}>
+              {t("common.clear")}
+            </Button>
+          </div>
+        )}
+      </section>
+
       {/* Features strip */}
-      <section className="border-b border-border/40 bg-muted/20">
+      <section className="border-y border-border/40 bg-muted/20">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-8 md:py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
@@ -160,70 +213,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Category filter + Tool grid */}
-      <section className="mx-auto max-w-7xl px-4 md:px-6 py-8 md:py-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
-          <div>
-            <h2 className="text-xl md:text-2xl font-bold tracking-tight">
-              {hasSearch ? t("common.results") : t("home.allTools")}
-            </h2>
-            <p className="text-sm text-muted-foreground mt-1">
-              {filteredTools.length} / {TOOLS.length}
-            </p>
-          </div>
-
-          {/* Category chips */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <button
-              onClick={() => setCategory(null)}
-              className={cn(
-                "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
-                !selectedCategory
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background hover:bg-accent"
-              )}
-            >
-              {t("common.allCategories")}
-            </button>
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setCategory(cat.id)}
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
-                  selectedCategory === cat.id
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-background hover:bg-accent"
-                )}
-              >
-                <cat.icon className="h-3 w-3" />
-                {t(`categories.${cat.id}.name`)}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Tools grid */}
-        {categoryTools.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {categoryTools.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center text-center py-16">
-            <div className="grid place-items-center h-12 w-12 rounded-full bg-muted text-muted-foreground mb-3">
-              <Search className="h-6 w-6" />
-            </div>
-            <p className="text-sm font-medium">{t("common.searchEmpty")}</p>
-            <p className="text-xs text-muted-foreground mt-1">{t("common.searchHint")}</p>
-            <Button variant="outline" size="sm" className="mt-4" onClick={() => { setSearch(""); setCategory(null); }}>
-              {t("common.clear")}
-            </Button>
-          </div>
-        )}
-      </section>
-
       {/* CTA */}
       <section className="border-t border-border/40 bg-muted/20">
         <div className="mx-auto max-w-3xl px-4 md:px-6 py-12 md:py-16 text-center">
@@ -233,9 +222,11 @@ export function Home() {
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto">
             {t("common.privacyNote")}
           </p>
-          <Button onClick={() => navigate({ name: "tool", slug: "json-formatter" })} className="gap-1.5">
-            {t("common.exploreTools")}
-            <ArrowRight className="h-4 w-4" />
+          <Button asChild className="gap-1.5">
+            <Link href="/tools/json-formatter">
+              {t("common.exploreTools")}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </section>

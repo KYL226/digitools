@@ -704,6 +704,93 @@
     "defaultTitle": "DigiTools — Premium Browser Utility Tools",
     "defaultDescription": "A premium collection of 26 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
   },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: November 2026",
+      "intro": "DigiTools is built privacy-first. This policy explains what happens (and what does not happen) when you use our tools.",
+      "sections": [
+        {
+          "heading": "No account, no tracking",
+          "body": "DigiTools does not require an account. We do not use analytics, advertising trackers, or third-party pixels. We do not sell or share personal data, because we do not collect it."
+        },
+        {
+          "heading": "Processing stays in your browser",
+          "body": "All tools run entirely in your browser. Your files, text, and results are never uploaded to a server. Conversion, compression, and formatting happen locally on your device."
+        },
+        {
+          "heading": "Local storage only",
+          "body": "We store a few preferences in your browser (theme, language) using localStorage and a cookie. These never leave your device and are not linked to an identity."
+        },
+        {
+          "heading": "No user content retention",
+          "body": "Because processing is local, we have no copy of the data you enter or the files you open. Closing the tab removes it from the page; clear your browser storage if you want to remove preferences."
+        },
+        {
+          "heading": "Changes",
+          "body": "If this policy changes materially, we will update this page. Continued use of DigiTools after changes means you accept the updated policy."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about privacy? Contact Digit'Tech Group, the operator of DigiTools."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "updated": "Last updated: November 2026",
+      "intro": "By using DigiTools you agree to these terms. If you do not agree, please do not use the site.",
+      "sections": [
+        {
+          "heading": "Use of the service",
+          "body": "DigiTools provides free browser-based utility tools for developers, writers, and creators. You may use them for personal and commercial purposes within the limits of applicable law."
+        },
+        {
+          "heading": "No warranty",
+          "body": "The tools are provided \"as is\" without warranties of any kind. We do not guarantee uninterrupted availability, accuracy of results, or fitness for a particular purpose. Always verify critical outputs."
+        },
+        {
+          "heading": "Your responsibility",
+          "body": "You are responsible for the data and files you process. Do not use DigiTools for unlawful purposes. Because processing is local, you alone control and retain your content."
+        },
+        {
+          "heading": "Intellectual property",
+          "body": "The DigiTools name, logo, interface, and code are owned by Digit'Tech Group or its licensors. You may not copy or redistribute the site wholesale without permission."
+        },
+        {
+          "heading": "Limitation of liability",
+          "body": "To the maximum extent permitted by law, Digit'Tech Group shall not be liable for any indirect, incidental, or consequential damages arising from your use of DigiTools."
+        },
+        {
+          "heading": "Changes",
+          "body": "We may update these terms. The \"last updated\" date on this page reflects the latest version. Continued use constitutes acceptance of the changes."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "updated": "Last updated: November 2026",
+      "intro": "DigiTools uses a minimal set of cookies and local storage entries. No advertising or cross-site tracking cookies are used.",
+      "sections": [
+        {
+          "heading": "Essential preferences",
+          "body": "We store your language choice (toolforge-locale) and theme preference so the site remembers them between visits. These are functional, not tracking, cookies."
+        },
+        {
+          "heading": "Service worker",
+          "body": "A service worker may cache assets for offline use. It does not profile you or send data to third parties."
+        },
+        {
+          "heading": "No ad cookies",
+          "body": "We do not use Google Analytics, advertising networks, or social media pixels. There are no third-party tracking cookies on DigiTools."
+        },
+        {
+          "heading": "Managing cookies",
+          "body": "You can clear cookies and site data at any time in your browser settings. The site will work; you may need to re-select your language or theme."
+        }
+      ]
+    }
+  },
   "errors": {
     "invalidJson": "Invalid JSON: {message}",
     "invalidRegex": "Invalid regular expression: {message}",

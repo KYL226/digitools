@@ -1,7 +1,0 @@
-# DigiTools — All bots welcome
-User-agent: *
-Allow: /
-Disallow: /api/
-
-# Sitemap
-Sitemap: /sitemap.xml

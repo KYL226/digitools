@@ -1,23 +1,27 @@
-"use client";
+import { getServerLocale, getMessages } from "@/lib/i18n/server";
+import { TOOLS } from "@/data/tools";
+import { SITE_URL } from "@/lib/site";
 
-import { useI18n } from "@/lib/i18n/i18n-context";
-import { TOOLS, CATEGORIES } from "@/data/tools";
-
-export function StructuredData() {
-  const { t, locale } = useI18n();
+/**
+ * JSON-LD structured data — server component so scripts land in the
+ * initial HTML (Google reads them; React never has to "execute" them).
+ */
+export async function StructuredData() {
+  const locale = await getServerLocale();
+  const messages = getMessages(locale);
 
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: t("common.appName"),
-    description: t("seo.siteDescription"),
-    url: "/",
+    name: messages.common.appName,
+    description: messages.seo.siteDescription,
+    url: SITE_URL,
     inLanguage: locale === "fr" ? "fr-FR" : "en-US",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "/?q={search_term_string}",
+        urlTemplate: `${SITE_URL}/?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -26,41 +30,24 @@ export function StructuredData() {
   const orgData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: t("common.appName"),
-    description: t("seo.siteDescription"),
-    url: "/",
+    name: messages.common.appName,
+    description: messages.seo.siteDescription,
+    url: SITE_URL,
   };
 
-  // BuildItemList — list of all tools
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: t("home.allTools"),
+    name: messages.home.allTools,
     numberOfItems: TOOLS.length,
     itemListElement: TOOLS.map((tool, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: t(`tools.${tool.slug}.name`),
-      description: t(`tools.${tool.slug}.short`),
-      url: `#/tools/${tool.slug}`,
+      name: messages.tools[tool.slug as keyof typeof messages.tools]?.name ?? tool.slug,
+      description: messages.tools[tool.slug as keyof typeof messages.tools]?.short ?? "",
+      url: `${SITE_URL}/tools/${tool.slug}`,
     })),
   };
-
-  // SoftwareApplication — for each tool, define as SoftwareApplication
-  const applications = TOOLS.map((tool) => ({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: t(`tools.${tool.slug}.name`),
-    description: t(`tools.${tool.slug}.description`),
-    applicationCategory: "Utilities",
-    operatingSystem: "Web Browser",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    url: `#/tools/${tool.slug}`,
-  }));
 
   return (
     <>
@@ -76,13 +63,6 @@ export function StructuredData() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
       />
-      {applications.map((app, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(app) }}
-        />
-      ))}
     </>
   );
 }

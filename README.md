@@ -21,6 +21,7 @@
 - [Architecture](#architecture)
 - [PWA & mode hors-ligne](#pwa--mode-hors-ligne)
 - [Internationalisation](#internationalisation)
+- [SEO](#seo)
 - [Déploiement](#déploiement)
 - [Scripts utilitaires](#scripts-utilitaires)
 - [Confidentialité](#confidentialité)
@@ -53,7 +54,9 @@ L'application tourne sur Next.js 16 (App Router) avec React 19, Tailwind CSS 4 e
 - ✈️ **Mode hors-ligne** — service worker avec stratégies de cache intelligentes
 - 🔖 **Raccourcis d'app** — accès direct à des outils depuis l'icône de l'app (JSON, QR Code, Mot de passe)
 - 🍞 **Notifications toast** (sonner) pour le retour d'action
-- 🗂️ **Routage par hash** (`/#/tools/<slug>`) — pas de rechargement de page, partage d'URL direct vers un outil
+- 🛣️ **Routage App Router** — URLs indexables par Google : `/tools/<slug>` et `/category/<slug>` (l'ancien routage par hash `/#/tools/<slug>` redirige automatiquement)
+- 📈 **SEO complet** — `sitemap.xml`, `robots.txt`, métadonnées par page, JSON-LD (BreadcrumbList, SoftwareApplication, FAQPage, ItemList)
+- 📄 **Pages légales** — `/privacy`, `/terms`, `/cookies` (bilingues, indexables)
 - 🎬 **FFmpeg WASM** — conversion/compression vidéo et audio sans serveur
 - 🔐 **Aucune collecte de données** — pas d'analytics, pas de trackers, pas de compte requis
 
@@ -130,9 +133,10 @@ Tous les outils sont traités côté client. Les composants sont lazy-loadés : 
 | Framework | **Next.js 16** (App Router) |
 | UI | **React 19**, **Tailwind CSS 4**, **shadcn/ui** (Radix UI) |
 | Langage | **TypeScript 5** |
-| État | **Zustand** (store global) |
+| État | **Zustand** (store recherche) |
 | Thème | **next-themes** (clair / sombre / système) |
-| i18n | Contexte React personnalisé (EN/FR) avec fallback |
+| i18n | Contexte React personnalisé (EN/FR) avec fallback + cookie SSR |
+| SEO | Métadonnées Next.js, `sitemap.ts`, `robots.ts`, JSON-LD |
 | Icônes | **lucide-react** |
 | Notifications | **sonner** |
 | Média | **@ffmpeg/ffmpeg** (WASM) |
@@ -205,27 +209,53 @@ Tous les outils tournent **100 % dans le navigateur** — aucun mini-service, au
 ```
 .
 ├── src/
-│   ├── app/                      # App Router (layout.tsx, page.tsx)
+│   ├── app/
+│   │   ├── layout.tsx             # Layout racine (metadata, i18n SSR, JSON-LD)
+│   │   ├── page.tsx               # Page d'accueil
+│   │   ├── sitemap.ts             # Sitemap XML (outils + catégories + légal)
+│   │   ├── robots.ts              # Robots.txt
+│   │   ├── tools/[slug]/          # Page SEO par outil (SSG)
+│   │   ├── category/[slug]/       # Hub SEO par catégorie (SSG)
+│   │   ├── privacy/               # Politique de confidentialité
+│   │   ├── terms/                 # Conditions d'utilisation
+│   │   └── cookies/               # Politique de cookies
 │   ├── components/
-│   │   ├── layout/               # AppShell, Header, theme, language switcher
-│   │   ├── home/                 # Page d'accueil + recherche
-│   │   └── tools/                # 26 composants d'outils (lazy-loaded)
-│   ├── data/tools.tsx            # Registre TOOLS[] (slug, catégorie, icône)
-│   ├── lib/i18n/                 # Contexte i18n personnalisé
-│   ├── messages/                 # en.json + fr.json
-│   └── store/                    # Zustand stores (route, recherche, catégorie)
+│   │   ├── layout/                # AppShell, Header, Footer, theme, language switcher
+│   │   ├── home/                  # Page d'accueil (hero → outils → features → CTA)
+│   │   ├── legal/                 # Composant partagé des pages légales
+│   │   ├── tool/                  # ToolView, ToolLayout, ToolCard
+│   │   └── tools/                 # 26 composants d'outils (lazy-loaded)
+│   ├── data/tools.tsx             # Registre TOOLS[] (slug, catégorie, icône)
+│   ├── lib/
+│   │   ├── i18n/                  # Contexte i18n + helpers SSR (server.ts)
+│   │   └── site.ts                # SITE_URL (NEXT_PUBLIC_SITE_URL)
+│   ├── messages/                  # en.json + fr.json (+ sections legal)
+│   └── store/                     # Zustand (recherche)
 ├── public/
-│   ├── manifest.webmanifest      # Manifest PWA
-│   ├── sw.js                     # Service worker
-│   ├── logo-digi.svg             # Logo SVG
-│   ├── icon-*.png                # Icônes PWA (192, 512, maskable, apple-touch)
-│   ├── favicon-*.png             # Favicons 16/32
-│   ├── og-image.png              # Aperçu réseaux sociaux (1200×630)
-│   └── ffmpeg/                   # FFmpeg WASM (core.js + core.wasm + worker)
-├── scripts/                      # Utilitaires Python (voir ci-dessous)
-├── prisma/                       # Schema Prisma (boilerplate)
-└── package.json                  # Dépendances + scripts npm
+│   ├── manifest.webmanifest       # Manifest PWA
+│   ├── sw.js                      # Service worker
+│   ├── sw-register.js             # Enregistrement SW (static)
+│   ├── logo-digi.svg              # Logo SVG (header + footer)
+│   ├── icon-*.png                 # Icônes PWA (192, 512, maskable, apple-touch)
+│   ├── favicon-*.png              # Favicons 16/32
+│   ├── og-image.png               # Aperçu réseaux sociaux (1200×630)
+│   └── ffmpeg/                    # FFmpeg WASM (core.js + core.wasm + worker)
+├── scripts/                       # Utilitaires Python (voir ci-dessous)
+├── prisma/                        # Schema Prisma (boilerplate)
+├── .env                           # NEXT_PUBLIC_SITE_URL à définir en prod
+└── package.json                   # Dépendances + scripts npm
 ```
+
+### Routes
+
+| Route | Rôle |
+|---|---|
+| `/` | Accueil : hero → grille d'outils → features → CTA |
+| `/tools/<slug>` | Page outil (H1, JSON-LD, outils liés) |
+| `/category/<slug>` | Hub catégorie (ItemList JSON-LD) |
+| `/privacy` `/terms` `/cookies` | Pages légales bilingues |
+| `/sitemap.xml` `/robots.txt` | SEO technique |
+| `/#/tools/<slug>` | Redirection automatique vers `/tools/<slug>` (liens legacy) |
 
 ---
 
@@ -284,7 +314,7 @@ Le service worker :
 L'app est **bilingue anglais / français** via un contexte React personnalisé (`src/lib/i18n/i18n-context.tsx`).
 
 - **Messages** : `src/messages/en.json` et `src/messages/fr.json`, importés statiquement
-- **Détection** : démarre en `en` (pour éviter les erreurs d'hydration SSR), puis après montage lit `localStorage["toolforge-locale"]` ou détecte `navigator.languages` (FR si une langue française est présente, sinon EN)
+- **Détection SSR** : la langue est lue côté serveur depuis le cookie `toolforge-locale` (pas de mismatch d'hydration). Sans cookie → `en` au premier rendu, puis bascule après montage selon `localStorage` ou `navigator.languages` (FR si une langue française est présente, sinon EN)
 - **Persistance** : `localStorage` + cookie `toolforge-locale` (1 an, `SameSite=Lax`) + attribut `<html lang>`
 - **Fallback** : si une clé manque dans la langue active, on retombe sur l'anglais
 - **Sélecteur** : composant `LanguageSwitcher` dans le header
@@ -293,15 +323,32 @@ L'app est **bilingue anglais / français** via un contexte React personnalisé (
 
 ---
 
+## SEO
+
+Chaque outil et chaque catégorie possède sa propre URL indexable :
+
+- **Métadonnées** — `generateMetadata` par route (title, description, canonical, OpenGraph, locale)
+- **Sitemap** — `src/app/sitemap.ts` génère les URLs des outils, catégories et pages légales
+- **Robots** — `src/app/robots.ts`
+- **JSON-LD** — BreadcrumbList, SoftwareApplication, FAQPage (pages outil) ; ItemList (catégories)
+- **`NEXT_PUBLIC_SITE_URL`** — à définir dans `.env` en production (fallback `http://localhost:3000`)
+
+---
+
 ## Déploiement
 
 Le déploiement est simple — une seule app Next.js :
 
 ```bash
-# Build et lancer
+# 1. Définir l'URL publique
+echo "NEXT_PUBLIC_SITE_URL=https://votre-domaine.com" >> .env
+
+# 2. Build et lancer
 npm run build
 npm run start
 ```
+
+Sans `NEXT_PUBLIC_SITE_URL`, le sitemap et les canonicals utiliseront `http://localhost:3000`.
 
 ---
 
@@ -311,7 +358,7 @@ Les scripts Python de maintenance vivent dans `scripts/`. Aucun n'est requis pou
 
 | Script | Rôle |
 |---|---|
-| `rename-toolforge-to-digitools.py` | Renomme ToolForge → DigiTools dans `layout.tsx`, `en.json`, `fr.json`, `robots.txt`. Préserve volontairement la clé `toolforge-locale` pour la rétro-compatibilité. |
+| `rename-toolforge-to-digitools.py` | Renomme ToolForge → DigiTools dans les fichiers sources. Préserve volontairement la clé `toolforge-locale` pour la rétro-compatibilité. |
 | `generate-pwa-icons.py` | Régénère toutes les icônes PWA à partir de `public/logo-digi.svg` (via `cairosvg` + `PIL`) : icon-192/512, maskable, apple-touch, favicons, og-image. |
 
 Pour régénérer les icônes après modification du logo :
@@ -331,6 +378,12 @@ DigiTools a été pensée pour préserver votre vie privée :
 - ✅ **Aucun upload** — tous les outils traitent vos données localement dans le navigateur
 - ✅ **Aucun stockage serveur** — rien n'est envoyé à un backend
 - ✅ **Préférences locales** — langue et thème stockés dans `localStorage`, jamais envoyés
+
+Les documents légaux sont disponibles dans le footer :
+
+- [`/privacy`](/privacy) — Politique de confidentialité
+- [`/terms`](/terms) — Conditions d'utilisation
+- [`/cookies`](/cookies) — Politique de cookies
 
 ---
 
