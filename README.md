@@ -1,6 +1,6 @@
 # DigiTools
 
-> 26 outils web haut de gamme pour développeurs, rédacteurs et créateurs — rapides, privés, bilingues (EN/FR), installables en PWA et fonctionnels hors ligne.
+> 28 outils web haut de gamme pour développeurs, rédacteurs et créateurs — rapides, privés, bilingues (EN/FR), installables en PWA et fonctionnels hors ligne.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev/)
@@ -15,7 +15,7 @@
 
 - [Présentation](#présentation)
 - [Fonctionnalités](#fonctionnalités)
-- [Les 26 outils](#les-26-outils)
+- [Les 28 outils](#les-28-outils)
 - [Stack technique](#stack-technique)
 - [Démarrage rapide](#démarrage-rapide)
 - [Architecture](#architecture)
@@ -31,7 +31,7 @@
 
 ## Présentation
 
-**DigiTools** est une collection de 26 utilitaires navigateur regroupés dans une seule application web progressive (PWA). Conçue pour les développeurs, rédacteurs et créateurs de contenu, elle se veut :
+**DigiTools** est une collection de 28 utilitaires navigateur regroupés dans une seule application web progressive (PWA). Conçue pour les développeurs, rédacteurs et créateurs de contenu, elle se veut :
 
 - **Rapide** — chargement à la demande (lazy-loading), traitement 100 % côté client
 - **Privée** — vos données ne quittent jamais votre navigateur
@@ -45,7 +45,7 @@ L'application tourne sur Next.js 16 (App Router) avec React 19, Tailwind CSS 4 e
 
 ## Fonctionnalités
 
-- 🧰 **26 outils** répartis en 6 catégories (développeur, encodage, texte, image, design, média)
+- 🧰 **28 outils** répartis en 7 catégories (développeur, encodage, texte, image, design, média, documents)
 - 🔍 **Recherche globale** bilingue (EN+FR) sur le nom, la description, les alias et les mots-clés de chaque outil
 - ⌨️ **Raccourci `/`** pour focaliser la recherche instantanément
 - 🌗 **Thème clair / sombre / système** persistant
@@ -62,7 +62,7 @@ L'application tourne sur Next.js 16 (App Router) avec React 19, Tailwind CSS 4 e
 
 ---
 
-## Les 26 outils
+## Les 28 outils
 
 Tous les outils sont traités côté client. Les composants sont lazy-loadés : seuls les outils ouverts téléchargent leur code et leurs dépendances.
 
@@ -121,6 +121,15 @@ Tous les outils sont traités côté client. Les composants sont lazy-loadés : 
 | `video-compressor` | Compresseur Vidéo | Réduit la taille vidéo (FFmpeg WASM) | ✅ après 1er lancement |
 | `audio-converter` | Convertisseur Audio | MP3 ↔ WAV ↔ … (FFmpeg WASM) | ✅ après 1er lancement |
 | `tiktok-date-extractor` | Extracteur de Date TikTok | Date de publication estimée depuis un lien TikTok | ✅ Oui |
+
+### 📄 Outils documents (2)
+
+| Slug | Nom (FR) | Description | Hors-ligne ? |
+|---|---|---|---|
+| `pdf-merger` | Fusionner des PDF | Assemble plusieurs PDF en un seul (réordonnancement + aperçu) | ✅ après 1er lancement |
+| `pdf-splitter` | Scinder un PDF | Extrait des pages avec aperçu visuel (sélection par case) | ✅ après 1er lancement |
+
+> ℹ️ Les outils PDF utilisent **pdf-lib** (fusion/scission) et **pdf.js** (aperçu), chargés en différé — 100 % côté client, aucun envoi vers un serveur.
 
 > ℹ️ **Note sur le mode hors-ligne des outils média** : FFmpeg WASM pèse ~30 Mo. Au premier lancement, le navigateur télécharge ces fichiers ; ils sont ensuite mis en cache par le navigateur et disponibles hors-ligne.
 
@@ -197,7 +206,7 @@ npm run start
                                  ▼
                     ┌──────────────────────────┐
                     │     Next.js (port 3000)   │
-                    │     App shell + 26 outils │
+                    │     App shell + 28 outils │
                     │     + PWA                │
                     └──────────────────────────┘
 ```
@@ -224,7 +233,7 @@ Tous les outils tournent **100 % dans le navigateur** — aucun mini-service, au
 │   │   ├── home/                  # Page d'accueil (hero → outils → features → CTA)
 │   │   ├── legal/                 # Composant partagé des pages légales
 │   │   ├── tool/                  # ToolView, ToolLayout, ToolCard
-│   │   └── tools/                 # 26 composants d'outils (lazy-loaded)
+│   │   └── tools/                 # 28 composants d'outils (lazy-loaded)
 │   ├── data/tools.tsx             # Registre TOOLS[] (slug, catégorie, icône)
 │   ├── lib/
 │   │   ├── i18n/                  # Contexte i18n + helpers SSR (server.ts)

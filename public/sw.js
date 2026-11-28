@@ -12,7 +12,7 @@
  * Version bump (CACHE_VERSION) forces a refresh on the next visit.
  */
 
-const CACHE_VERSION = "digitools-v1";
+const CACHE_VERSION = "digitools-v2";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 
@@ -47,7 +47,7 @@ const SWR_ASSET = (url) => {
   // Static assets
   return (
     url.pathname.startsWith("/_next/static/") ||
-    /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|wasm)$/i.test(
+    /\.(?:js|mjs|css|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|wasm)$/i.test(
       url.pathname
     ) ||
     url.pathname === "/manifest.webmanifest"
@@ -107,6 +107,11 @@ self.addEventListener("fetch", (event) => {
     url = new URL(req.url);
   } catch {
     return; // malformed URL, let the browser handle it
+  }
+
+  // Avoid stale Next.js development chunks while hot reloading on localhost.
+  if (self.location.hostname === "localhost" || self.location.hostname === "127.0.0.1") {
+    return;
   }
 
   // 1. Network-only for API / FFmpeg WASM

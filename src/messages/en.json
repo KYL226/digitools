@@ -142,7 +142,7 @@
   },
   "home": {
     "heroTitle": "All your favorite tools, in one place",
-    "heroSubtitle": "A premium collection of 26 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
+    "heroSubtitle": "A premium collection of 28 browser-based utilities for developers, writers, and creators. Fast, private, and beautifully crafted.",
     "heroCta": "Explore tools",
     "heroSecondaryCta": "Why DigiTools?",
     "featurePrivacyTitle": "Private by design",
@@ -187,6 +187,10 @@
     "media": {
       "name": "Media Tools",
       "description": "Convert, compress, and process audio & video"
+    },
+    "documents": {
+      "name": "Document Tools",
+      "description": "Merge, split, and process your PDF files"
     }
   },
   "footer": {
@@ -696,13 +700,82 @@
           "a": "It is an estimate derived from the ID structure, not a value fetched from TikTok. It is usually very close to the real publish time."
         }
       ]
+    },
+    "pdf-merger": {
+      "name": "PDF Merger",
+      "short": "Combine multiple PDFs into a single file",
+      "description": "Combine several PDF files into one document. Reorder the files, check the first-page preview, then download the result. Everything runs in your browser.",
+      "input": "Drop your PDF files here",
+      "fileCount": "{count} file(s)",
+      "pages": "{count} page(s)",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "remove": "Remove",
+      "needTwo": "Add at least 2 PDFs to start merging.",
+      "scanning": "Reading PDFs…",
+      "merging": "Merging…",
+      "merge": "Merge",
+      "downloadResult": "Download ({count} pages)",
+      "errors": {
+        "invalidPdf": "Could not read \"{name}\". {message}",
+        "mergeFailed": "Merge failed: {message}"
+      },
+      "faq": [
+        {
+          "q": "Are my files uploaded anywhere?",
+          "a": "No. Merging runs entirely in your browser with pdf-lib. No file is ever sent to a server."
+        },
+        {
+          "q": "What is the maximum size?",
+          "a": "Up to 100 MB per file. Very large documents may take a few seconds to merge."
+        },
+        {
+          "q": "Are forms and fonts preserved?",
+          "a": "Pages are copied as-is. Complex interactive forms may lose some fields after merging — check the output."
+        }
+      ]
+    },
+    "pdf-splitter": {
+      "name": "PDF Splitter",
+      "short": "Extract PDF pages with visual preview",
+      "description": "Open a PDF, browse the preview of every page, tick the ones you want, then extract them into a new file or one page at a time. 100% local processing.",
+      "input": "Drop your PDF file here",
+      "pages": "{count} page(s)",
+      "selectedCount": "{count} selected",
+      "selectAll": "Select all",
+      "selectNone": "Select none",
+      "invert": "Invert",
+      "rendering": "Rendering pages {done}/{total}…",
+      "page": "Page",
+      "downloadSelected": "Extract {count} page(s)",
+      "downloadEach": "Download each page",
+      "downloadDone": "{count} file(s) downloaded",
+      "errors": {
+        "invalidPdf": "Could not read \"{name}\". {message}",
+        "splitFailed": "Extraction failed: {message}",
+        "tooManyIndividual": "Individual download is limited to {max} pages. Use \"Extract\" instead, then split the result."
+      },
+      "faq": [
+        {
+          "q": "How do I extract specific pages?",
+          "a": "Load the PDF — the preview shows every page. Click a page to select or deselect it, then extract the selection."
+        },
+        {
+          "q": "Can I download each page separately?",
+          "a": "Yes, via \"Download each page\". The browser may ask permission to download multiple files. Limited to 50 pages at a time."
+        },
+        {
+          "q": "Does my data stay local?",
+          "a": "Yes. The PDF is read and split in your browser (pdf.js + pdf-lib), with no upload to any server."
+        }
+      ]
     }
   },
   "seo": {
     "siteName": "DigiTools",
-    "siteDescription": "Premium browser-based utility tools. 26 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
+    "siteDescription": "Premium browser-based utility tools. 28 tools for developers, writers, and creators. Fast, private, bilingual (English/French).",
     "defaultTitle": "DigiTools — Premium Browser Utility Tools",
-    "defaultDescription": "A premium collection of 26 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
+    "defaultDescription": "A premium collection of 28 browser-based utilities for developers, writers, and creators. Fast, private, and bilingual."
   },
   "legal": {
     "privacy": {

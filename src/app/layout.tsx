@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | DigiTools",
   },
   description:
-    "26 free browser-based tools for developers, writers, and creators. Format JSON, compress images, generate QR codes and more. Fast, private, works offline.",
+    "28 free browser-based tools for developers, writers, and creators. Format JSON, compress images, merge PDFs, generate QR codes and more. Fast, private, works offline.",
   manifest: "/manifest.webmanifest",
   keywords: [
     "utility tools",
@@ -37,6 +37,8 @@ export const metadata: Metadata = {
     "image compressor",
     "qr code generator",
     "password generator",
+    "pdf merger",
+    "pdf splitter",
     "base64",
     "regex tester",
     "online tools",
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DigiTools — Free Browser Tools for Developers & Creators",
     description:
-      "26 free browser tools. Format JSON, compress images, convert media and more. Fast, private, bilingual, works offline.",
+      "28 free browser tools. Format JSON, compress images, convert media, merge PDFs and more. Fast, private, bilingual, works offline.",
     siteName: "DigiTools",
     type: "website",
     url: SITE_URL,
@@ -81,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DigiTools — Free Browser Tools for Developers & Creators",
     description:
-      "26 free browser tools. Format JSON, compress images, convert media and more. Fast, private, bilingual.",
+      "28 free browser tools. Format JSON, compress images, convert media, merge PDFs and more. Fast, private, bilingual.",
     images: ["/og-image.png"],
   },
   robots: {

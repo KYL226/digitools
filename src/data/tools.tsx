@@ -27,6 +27,9 @@ import {
   Video,
   Music,
   CalendarDays,
+  Files,
+  Combine,
+  Scissors,
 } from "lucide-react";
 
 export type ToolCategory =
@@ -35,7 +38,8 @@ export type ToolCategory =
   | "encoding"
   | "image"
   | "design"
-  | "media";
+  | "media"
+  | "documents";
 
 export interface ToolMeta {
   slug: string;
@@ -291,6 +295,25 @@ export const TOOLS: ToolMeta[] = [
     aliases: ["tiktok", "date", "extract", "timestamp"],
     keywords: ["tiktok", "date", "extract", "video", "id", "timestamp", "publication"],
   },
+  // Document Tools
+  {
+    slug: "pdf-merger",
+    category: "documents",
+    icon: Combine,
+    i18nKey: "tools.pdf-merger",
+    component: "./tools/pdf-merger",
+    aliases: ["pdf", "merge", "combine", "fusionner", "assembler"],
+    keywords: ["pdf", "merge", "combine", "join", "concatenate", "documents"],
+  },
+  {
+    slug: "pdf-splitter",
+    category: "documents",
+    icon: Scissors,
+    i18nKey: "tools.pdf-splitter",
+    component: "./tools/pdf-splitter",
+    aliases: ["pdf", "split", "scinder", "extract", "pages"],
+    keywords: ["pdf", "split", "extract", "pages", "separate", "divide", "documents"],
+  },
 ];
 
 export const CATEGORIES: { id: ToolCategory; icon: LucideIcon }[] = [
@@ -300,6 +323,7 @@ export const CATEGORIES: { id: ToolCategory; icon: LucideIcon }[] = [
   { id: "image", icon: ImageIcon },
   { id: "design", icon: Pipette },
   { id: "media", icon: Film },
+  { id: "documents", icon: Files },
 ];
 
 export function getToolBySlug(slug: string): ToolMeta | undefined {

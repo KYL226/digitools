@@ -92,6 +92,12 @@ const toolComponents: Record<
       default: m.TikTokDateExtractor,
     }))
   ),
+  "pdf-merger": lazy(() =>
+    import("@/components/tools/pdf-merger").then((m) => ({ default: m.PdfMerger }))
+  ),
+  "pdf-splitter": lazy(() =>
+    import("@/components/tools/pdf-splitter").then((m) => ({ default: m.PdfSplitter }))
+  ),
 };
 
 interface ToolViewProps {

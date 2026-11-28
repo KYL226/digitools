@@ -142,7 +142,7 @@
   },
   "home": {
     "heroTitle": "Tous vos outils préférés, au même endroit",
-    "heroSubtitle": "Une collection premium de 26 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et soigneusement conçu.",
+    "heroSubtitle": "Une collection premium de 28 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et soigneusement conçu.",
     "heroCta": "Explorer les outils",
     "heroSecondaryCta": "Pourquoi DigiTools ?",
     "featurePrivacyTitle": "Privé par conception",
@@ -187,6 +187,10 @@
     "media": {
       "name": "Outils média",
       "description": "Convertir, compresser et traiter audio & vidéo"
+    },
+    "documents": {
+      "name": "Outils documents",
+      "description": "Fusionnez, scindez et traitez vos fichiers PDF"
     }
   },
   "footer": {
@@ -696,13 +700,82 @@
           "a": "C'est une estimation déduite de la structure de l'ID, pas une valeur récupérée auprès de TikTok. Elle est généralement très proche de l'heure réelle de publication."
         }
       ]
+    },
+    "pdf-merger": {
+      "name": "Fusionner des PDF",
+      "short": "Assembler plusieurs PDF en un seul fichier",
+      "description": "Combinez plusieurs fichiers PDF en un seul document. Réordonnez les fichiers, vérifiez l'aperçu de la première page, puis téléchargez le résultat. Tout se fait dans votre navigateur.",
+      "input": "Déposez vos fichiers PDF ici",
+      "fileCount": "{count} fichier(s)",
+      "pages": "{count} page(s)",
+      "moveUp": "Déplacer vers le haut",
+      "moveDown": "Déplacer vers le bas",
+      "remove": "Retirer",
+      "needTwo": "Ajoutez au moins 2 PDF pour lancer la fusion.",
+      "scanning": "Lecture des PDF…",
+      "merging": "Fusion en cours…",
+      "merge": "Fusionner",
+      "downloadResult": "Télécharger ({count} pages)",
+      "errors": {
+        "invalidPdf": "Impossible de lire « {name} ». {message}",
+        "mergeFailed": "Échec de la fusion : {message}"
+      },
+      "faq": [
+        {
+          "q": "Mes fichiers sont-ils envoyés quelque part ?",
+          "a": "Non. La fusion s'exécute entièrement dans votre navigateur avec pdf-lib. Aucun fichier n'est téléchargé vers un serveur."
+        },
+        {
+          "q": "Quelle est la taille maximale ?",
+          "a": "Jusqu'à 100 Mo par fichier. Pour de très gros documents, la fusion peut prendre quelques secondes."
+        },
+        {
+          "q": "Les formulaires et les polices sont-ils préservés ?",
+          "a": "Les pages sont copiées telles quelles. Les formulaires interactifs complexes peuvent perdre certains champs après fusion — vérifiez le résultat."
+        }
+      ]
+    },
+    "pdf-splitter": {
+      "name": "Scinder un PDF",
+      "short": "Extraire des pages d'un PDF avec aperçu",
+      "description": "Ouvrez un PDF, parcourez l'aperçu de chaque page, cochez celles que vous voulez, puis extraites-les en un nouveau fichier ou une page à la fois. Traitement 100 % local.",
+      "input": "Déposez votre fichier PDF ici",
+      "pages": "{count} page(s)",
+      "selectedCount": "{count} sélectionnée(s)",
+      "selectAll": "Tout sélectionner",
+      "selectNone": "Tout désélectionner",
+      "invert": "Inverser",
+      "rendering": "Rendu des pages {done}/{total}…",
+      "page": "Page",
+      "downloadSelected": "Extraire {count} page(s)",
+      "downloadEach": "Télécharger chaque page",
+      "downloadDone": "{count} fichier(s) téléchargé(s)",
+      "errors": {
+        "invalidPdf": "Impossible de lire « {name} ». {message}",
+        "splitFailed": "Échec de l'extraction : {message}",
+        "tooManyIndividual": "Téléchargement individuel limité à {max} pages. Utilisez « Extraire » puis scindez le résultat."
+      },
+      "faq": [
+        {
+          "q": "Comment extraire des pages précises ?",
+          "a": "Chargez le PDF, l'aperçu affiche toutes les pages. Cliquez sur une page pour la sélectionner ou désélectionner, puis extrayez la sélection."
+        },
+        {
+          "q": "Puis-je télécharger chaque page séparément ?",
+          "a": "Oui, via « Télécharger chaque page ». Le navigateur peut demander l'autorisation de télécharger plusieurs fichiers. Limité à 50 pages à la fois."
+        },
+        {
+          "q": "Mes données restent-elles locales ?",
+          "a": "Oui. Le PDF est lu et découpé dans votre navigateur (pdf.js + pdf-lib), sans aucun envoi vers un serveur."
+        }
+      ]
     }
   },
   "seo": {
     "siteName": "DigiTools",
-    "siteDescription": "Outils utilitaires navigateur haut de gamme. 26 outils pour développeurs, rédacteurs et créateurs. Rapide, privé, bilingue (anglais/français).",
+    "siteDescription": "Outils utilitaires navigateur haut de gamme. 28 outils pour développeurs, rédacteurs et créateurs. Rapide, privé, bilingue (anglais/français).",
     "defaultTitle": "DigiTools — Outils utilitaires navigateur haut de gamme",
-    "defaultDescription": "Une collection premium de 26 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et bilingue."
+    "defaultDescription": "Une collection premium de 28 utilitaires navigateur pour développeurs, rédacteurs et créateurs. Rapide, privé et bilingue."
   },
   "legal": {
     "privacy": {
